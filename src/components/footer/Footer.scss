@@ -1,0 +1,10 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+.footer {
+  &__copy {
+    @include body-small;
+    color: $Slate;
+  }
+}

@@ -7,16 +7,17 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SamplePage/>} />
-
         <Route path="/inventory" element={<SamplePage/>} />
         <Route path="/inventory/new" element={<SamplePage/>} />
         <Route path="/inventory/:itemID" element={<SamplePage/>} />
         <Route path="/inventory/:itemID/edit" element={<SamplePage/>} />
-
         <Route path="/warehouse" element={<SamplePage/>} />
-        <Route path="warehouse/new" element={<SamplePage/>} />
-        <Route path="warehouse/:warehouseID/" element={<SamplePage/>} />
-        <Route path="warehouse/:warehouseID/edit" element={<SamplePage/>} />
+        <Route path="warehouse/:warehouseID/" element={< />} />
+        <Route path="warehouse/:warehouseID/edit" element={< />} />
+        <Route path="warehouse/new" element={< />} />
+        <Route path="warehouse/new" element={< />} />
+        <Route path="" element={</>} />
+        <Route path="" element={</>} />
       </Routes>
     </BrowserRouter>
   );

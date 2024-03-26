@@ -3,6 +3,10 @@
 @use '../../partials/variables' as *;
 
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
   &__copy {
     @include body-small;
     color: $Slate;

@@ -1,6 +1,7 @@
 import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SamplePage from "./pages/SamplePage/SamplePage";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="warehouse/:warehouseID/" element={<SamplePage/>} />
         <Route path="warehouse/:warehouseID/edit" element={<SamplePage/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

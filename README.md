@@ -4,7 +4,7 @@
 Group Project: InStock 
 
 
-Group Member : 
+Group Members : 
 
 * Eric Trumer
 * Edward

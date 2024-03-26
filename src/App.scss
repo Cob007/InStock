@@ -1,3 +1,7 @@
+@use './partials/globals' as *;
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+
 #root {
   margin: 0;
   padding: 0;

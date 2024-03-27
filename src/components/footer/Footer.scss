@@ -7,7 +7,10 @@
   justify-content: center;
   align-items: center;
   height: 64px;
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
   &__copy {
     @include body-small;
     color: $Slate;

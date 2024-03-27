@@ -21,7 +21,7 @@ const FormFields = (props) => {
           <div>
             <input
               required
-              className="form__field-input test"
+              className="form__field-input"
               placeholder={props.label}
               type="text"
               name={props.inputName}

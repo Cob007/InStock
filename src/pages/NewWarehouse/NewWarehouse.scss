@@ -1,0 +1,151 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+.new-warehouse {
+  background-color: white;
+  border-radius: 3px;
+  margin: 0 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 3px rgba(19, 24, 44, 0.1);
+
+  @include tablet {
+    margin: 0 32px;
+  }
+
+  &__divider,
+  &__divider-responsive {
+    background-color: $Cloud;
+    height: 1px;
+    width: 100%;
+  }
+
+  &__divider-responsive {
+    @include tablet {
+      width: 1px;
+      height: auto;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__header-div {
+    display: flex;
+    margin: 24px 24px 16px 24px;
+  }
+
+  &__header {
+    @include page-header;
+    margin: 0;
+  }
+
+  &__back-arrow {
+    width: 24px;
+    margin-right: 16px;
+  }
+
+  &__fields-div {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__warehouse-div,
+  &__contact-div {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 24px 16px 24px;
+    box-sizing: border-box;
+    width: auto;
+
+    @include tablet {
+      margin: 24px 32px 16px 32px;
+      width: 50%
+    }
+  }
+
+  &__warehouse-header,
+  &__contact-header {
+    @include subheader;
+    margin: 0 0 24px 0;
+  }
+
+  &__warehouse-name-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    box-sizing: border-box
+  }
+
+  &__buttons-div {
+    background-color: $Light-Grey;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: flex-end;
+      padding: 16px 32px;
+    }
+  }
+
+  &__cancel {
+    display: flex;
+    border-color: $Cloud;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    height: 36px;
+    width: 100%;
+    margin-right: 16px;
+    justify-content: center;
+    align-items: center;
+    color: $Slate;
+    text-decoration: none;
+    @include labels-links-buttons;
+
+    &:hover {
+      border-color: $Instock-Indigo;
+      color: $Instock-Indigo;
+    }
+
+    @include tablet {
+      width: auto;
+      padding: 0 16px;
+      height: 38px;
+    }
+  }
+
+  &__add {
+    display: flex;
+    background-color: $Instock-Indigo;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: $Instock-Indigo;
+    border-style: solid;
+    height: 36px;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    @include labels-links-buttons;
+
+    &:hover {
+      background-color: $Graphite;
+      border-color: $Graphite;
+    }
+
+    @include tablet {
+      width: auto;
+      padding: 0 16px;
+      height: 38px;
+    }
+  }
+}

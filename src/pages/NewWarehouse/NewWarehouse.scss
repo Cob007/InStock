@@ -19,7 +19,7 @@
 
   &__header-div {
     display: flex;
-    margin: 24px 16px 16px 16px;
+    margin: 24px 24px 16px 24px;
   }
 
   &__header {
@@ -36,7 +36,7 @@
   &__contact-div {
     display: flex;
     flex-direction: column;
-    margin: 24px 16px 16px 16px;
+    margin: 24px 24px 16px 24px;
     box-sizing: border-box
   }
 
@@ -51,5 +51,54 @@
     flex-direction: column;
     margin-top: 24px;
     box-sizing: border-box
+  }
+
+  &__buttons-div {
+    background-color: $Light-Grey;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cancel {
+    display: flex;
+    border-color: $Cloud;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    height: 32px;
+    width: 100%;
+    margin-right: 16px;
+    justify-content: center;
+    align-items: center;
+    color: $Slate;
+    text-decoration: none;
+    @include labels-links-buttons;
+
+    &:hover {
+      border-color: $Instock-Indigo;
+      color: $Instock-Indigo;
+    }
+  }
+
+  &__add {
+    display: flex;
+    background-color: $Instock-Indigo;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: $Instock-Indigo;
+    border-style: solid;
+    height: 32px;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    @include labels-links-buttons;
+
+    &:hover {
+      background-color: $Graphite;
+      border-color: $Graphite;
+    }
   }
 }

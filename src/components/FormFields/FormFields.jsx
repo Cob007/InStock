@@ -1,12 +1,12 @@
-import './NewWarehouseFormFields.scss'
+import './FormFields.scss'
 
-const NewWarehouseFormFields = (props) => {
+const FormFields = (props) => {
   return (
-    <form className="form">
+    <div className="form">
       <div className="form__field-div">
         <label
           className="form__field-label"
-          htmlFor="warehouse-name"
+          htmlFor={props.inputName}
         >
           {props.label}
         </label>
@@ -14,11 +14,11 @@ const NewWarehouseFormFields = (props) => {
           className="form__field-input"
           placeholder={props.label}
           type="text"
-          name="warehouse-name"
+          name={props.inputName}
         />
       </div>
-    </form>
+    </div>
   );
 };
 
-export default NewWarehouseFormFields;
+export default FormFields;

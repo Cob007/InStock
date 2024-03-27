@@ -1,0 +1,32 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+.form {
+  margin-bottom: 16px;
+
+  &__field-label {
+    @include labels-links-buttons;
+    // margin-bottom: 4px;
+  }
+  
+  &__field-input {
+    margin-top: 4px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: $Cloud;
+    border-width: 1px;
+    height: 36px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+    @include body-medium;
+    color: $Slate;
+
+    &:focus {
+      border-color: $Instock-Indigo;
+      outline: none;
+      color: $Instock-Black;
+    }
+  }
+}

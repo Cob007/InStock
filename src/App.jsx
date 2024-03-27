@@ -7,19 +7,20 @@ import Header from "./components/header/Header";
 function App() {
   return (
     <BrowserRouter>
-    <Header />
+      <Header />
+      <div className="backgroundBlack"></div>
       <Routes>
-        <Route path="/" element={<SamplePage/>} />
+        <Route path="/" element={<SamplePage />} />
 
-        <Route path="/inventory" element={<SamplePage/>} />
-        <Route path="/inventory/new" element={<SamplePage/>} />
-        <Route path="/inventory/:itemID" element={<SamplePage/>} />
-        <Route path="/inventory/:itemID/edit" element={<SamplePage/>} />
+        <Route path="/inventory" element={<SamplePage />} />
+        <Route path="/inventory/new" element={<SamplePage />} />
+        <Route path="/inventory/:itemID" element={<SamplePage />} />
+        <Route path="/inventory/:itemID/edit" element={<SamplePage />} />
 
-        <Route path="/warehouse" element={<SamplePage/>} />
-        <Route path="warehouse/new" element={<SamplePage/>} />
-        <Route path="warehouse/:warehouseID/" element={<SamplePage/>} />
-        <Route path="warehouse/:warehouseID/edit" element={<SamplePage/>} />
+        <Route path="/warehouse" element={<SamplePage />} />
+        <Route path="warehouse/new" element={<SamplePage />} />
+        <Route path="warehouse/:warehouseID/" element={<SamplePage />} />
+        <Route path="warehouse/:warehouseID/edit" element={<SamplePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

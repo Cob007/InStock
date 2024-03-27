@@ -1,0 +1,140 @@
+@use '../../../partials/globals' as *;
+@use '../../../partials/mixins' as *;
+@use '../../../partials/variables' as *;
+
+
+.newinventory {
+    background-color: white;
+    border-radius: 3px;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgba(19, 24, 44, 0.1);
+
+    &__header {
+        margin: 32px 16px 24px 16px;
+        @include page-header;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 16px; */
+
+    &__section-one {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__section-two {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+    }
+
+    &__section-header {
+        @include subheader;
+        padding: 16px 16px 0 16px;
+        margin: 0;
+        border-top: 1px solid $Cloud;
+    }
+
+    &__label {
+        @include labels-links-buttons;
+        margin: 16px 16px 4px 16px;
+    }
+
+    &__input {
+        border: 1px solid $Cloud;
+        border-radius: 20px;
+        height: 36px;
+        margin: 0 16px;
+        @include body-small;
+
+        &--wide {
+            height: 90px;
+        }
+
+        &--selector {
+            padding: 0 16px;
+        }
+    }
+
+    &__selector-value {
+        /* margin: 16px; */
+    }
+
+    &__stock-status {
+        display: flex;
+        flex-direction: row;
+        margin: 0 16px;
+    }
+
+    &__radio-selection {
+        display: flex;
+        width: 50%;
+    }
+
+    &__radio {
+        margin-right: 4px;
+    }
+
+    &__radio-label {
+        @include body-small;
+    }
+
+    &__buttons {
+        display: flex;
+        padding: 8px 16px;
+        background-color: $Light-Grey;
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    &__button {
+        @include labels-links-buttons;
+        height: 36px;
+        width: 100%;
+        border: 1px solid $Cloud;
+        border-radius: 20px;
+        background-color: #FFFF;
+        color: $Slate;
+
+        &--submit {
+            background-color: $Instock-Indigo;
+            border: 1px solid $Instock-Indigo;
+            color: #FFFF; 
+        }
+
+    }
+}
+
+input {
+    padding: 0 16px;
+    @include body-small;
+}
+
+input::placeholder {
+    @include body-small;
+}
+
+textarea {
+    padding: 8px 16px;
+}
+
+select { 
+    -webkit-appearance: none;
+    background-image: url('../../../assets/Logo/InStock-Logo_1x.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 4rem;
+    margin-right: 16px;
+}
+
+
+
+/* .form__radio:checked {
+    background: hotpink
+} */

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SamplePage from "./pages/SamplePage/SamplePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import AddNewInventory from "./components/inventory/AddNewInventory/AddNewInventory.jsx";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/" element={<SamplePage />} />
 
         <Route path="/inventory" element={<SamplePage />} />
-        <Route path="/inventory/new" element={<SamplePage />} />
+        <Route path="/inventory/new" element={<AddNewInventory />} />
         <Route path="/inventory/:itemID" element={<SamplePage />} />
         <Route path="/inventory/:itemID/edit" element={<SamplePage />} />
 

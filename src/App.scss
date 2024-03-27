@@ -11,3 +11,10 @@ body {
   margin: 0;
 }
 
+.backgroundBlack {
+  height: 56px;
+  width: 100%;
+  background-color: $Graphite;
+  position: absolute;
+  z-index: -1;
+}

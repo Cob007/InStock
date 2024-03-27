@@ -4,6 +4,7 @@
 
 .form {
   margin-bottom: 16px;
+  box-sizing: border-box;
 
   &__field-label {
     @include labels-links-buttons;
@@ -22,11 +23,35 @@
     padding: 0 16px;
     @include body-medium;
     color: $Slate;
+    box-sizing: border-box;
 
     &:focus {
       border-color: $Instock-Indigo;
       outline: none;
       color: $Instock-Black;
     }
+
+    &:invalid {
+      border-color: red;
+      outline: none;
+    }
+  }
+
+  &__error-div {
+    display: flex;
+  }
+
+  &__error-icon {
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  &__error-message {
+    color: $Red;
+    @include body-small
   }
 }
+
+// .error {
+//   visibility: hidden;
+// }

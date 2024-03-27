@@ -4,6 +4,7 @@
 
 .form {
   margin-bottom: 16px;
+  box-sizing: border-box;
 
   &__field-label {
     @include labels-links-buttons;
@@ -22,6 +23,7 @@
     padding: 0 16px;
     @include body-medium;
     color: $Slate;
+    box-sizing: border-box;
 
     &:focus {
       border-color: $Instock-Indigo;

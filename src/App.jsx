@@ -2,10 +2,12 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SamplePage from "./pages/SamplePage/SamplePage";
 import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route path="/" element={<SamplePage/>} />
 

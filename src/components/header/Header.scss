@@ -4,23 +4,75 @@
 
 .header {
   background-color: $Graphite;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
+  
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  
+    @include tablet {
+      flex-direction: row;
+      padding: 16px 32px;
+      align-items: center;
+    }
+  
+    @include desktop {
+      width: 1020px;
+      flex-direction: row;
+      padding: 16px 0;
+      margin: auto;
+    }
+  }
 
   &__links {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+
+    @include tablet {
+      justify-content: flex-end
+    }
   }
 
-  &__link {
+  &__linkWarehouses,
+  &__linkInventory {
+    @include labels-links-buttons;
+    color: $Cloud;
+    text-decoration: none;
+    margin-top: 16px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 38px;
+    border-radius: 20px;
+    padding: 0 16px;
+    width: 40%;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include tablet {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+
+  &__linkWarehouses {
+    margin-right: 16px;
+    @include tablet {
+      margin-right: 24px;
+    }
+  }
+
+  &__links a:active {
     background-color: $Instock-Black;
+    color: white;
   }
 }
+

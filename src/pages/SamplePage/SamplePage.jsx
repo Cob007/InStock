@@ -1,7 +1,9 @@
+import './SamplePage.scss'
+
 const SamplePage = () => {
   return (
-    <main>
-      <p>Welcome</p>
+    <main className="test">
+      <p className='test__text'>Welcome</p>
     </main>
   );
 };

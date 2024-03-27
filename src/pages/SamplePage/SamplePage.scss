@@ -3,4 +3,8 @@
   background-color: red;
   // z-index: 999;
   margin: 0 16px;
+
+  &__text {
+    margin: 0;
+  }
 }

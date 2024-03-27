@@ -28,5 +28,28 @@
       outline: none;
       color: $Instock-Black;
     }
+
+    &:invalid {
+      border-color: red;
+      outline: none;
+    }
+  }
+
+  &__error-div {
+    display: flex;
+  }
+
+  &__error-icon {
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  &__error-message {
+    color: $Red;
+    @include body-small
   }
 }
+
+// .error {
+//   visibility: hidden;
+// }

@@ -3,11 +3,12 @@ import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
 import FormFields from "../../components/FormFields/FormFields";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 const NewWarehouse = () => {
   const [valid, setValid] = useState(true);
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setValid(false);
 
@@ -21,11 +22,35 @@ const NewWarehouse = () => {
       event.target.phoneNumber.value === "" ||
       event.target.email.value === ""
     ) {
-      return
-      console.log(warehouseName)
-  console.log(streetAddress);
+      console.log("Error")
     } else {
       console.log("Cool!");
+
+      const warehouse_name = event.target.warehouseName.value
+      const address = event.target.streetAddress.value
+      const city = event.target.city.value
+      const country = event.target.country.value
+      const contact_name = event.target.contactName.value 
+      const contact_position = event.target.position.value 
+      const contact_phone = event.target.phoneNumber.value 
+      const contact_email = event.target.email.value 
+
+      try {
+        await axios.post("http://localhost:8080/warehouses", {
+          warehouse_name: warehouse_name,
+          address: address,
+          city: city,
+          country: country,
+          contact_name: contact_name,
+          contact_position: contact_position,
+          contact_phone: contact_phone,
+          contact_email: contact_email
+        });
+        alert("Upload Successful");
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

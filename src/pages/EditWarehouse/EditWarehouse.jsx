@@ -62,7 +62,7 @@ const EditWarehouse = () => {
           src={ArrowBack}
           alt="Arrow Back"
         />
-        <h1 className="edit-warehouse__header">Add New Warehouse</h1>
+        <h1 className="edit-warehouse__header">Edit Warehouse</h1>
       </section>
       <div className="edit-warehouse__divider"></div>
       <form className="edit-warehouse__form" noValidate>
@@ -105,7 +105,7 @@ const EditWarehouse = () => {
           <Link to="/warehouse" className="edit-warehouse__cancel">
             Cancel
           </Link>
-          <button className="edit-warehouse__add">+ Add Warehouse</button>
+          <button className="edit-warehouse__add">Save</button>
         </section>
       </form>
     </main>

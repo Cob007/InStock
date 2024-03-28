@@ -4,6 +4,7 @@ import SamplePage from "./pages/SamplePage/SamplePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
+import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/warehouse" element={<SamplePage />} />
         <Route path="warehouse/new" element={<NewWarehouse />} />
         <Route path="warehouse/:warehouseID/" element={<SamplePage />} />
-        <Route path="warehouse/:warehouseID/edit" element={<SamplePage />} />
+        <Route path="warehouse/:warehouseID/edit" element={<EditWarehouse />} />
       </Routes>
       <Footer />
     </BrowserRouter>

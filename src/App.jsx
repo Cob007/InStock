@@ -4,7 +4,7 @@ import SamplePage from "./pages/SamplePage/SamplePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import NewWarehouse from "./pages/NewWarehouse/NewWarehouse";
-import AddNewInventory from "./components/inventory/AddNewInventory/AddNewInventory.jsx";
+import NewInventory from "./pages/NewInventory/NewInventory.jsx";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<SamplePage />} />
 
         <Route path="/inventory" element={<SamplePage />} />
-        <Route path="/inventory/new" element={<AddNewInventory />} />
+        <Route path="/inventory/new" element={<NewInventory />} />
         <Route path="/inventory/:itemID" element={<SamplePage />} />
         <Route path="/inventory/:itemID/edit" element={<SamplePage />} />
 

@@ -21,11 +21,15 @@ const NewWarehouse = () => {
       event.target.phoneNumber.value === "" ||
       event.target.email.value === ""
     ) {
-      return;
+      return
+      console.log(warehouseName)
+  console.log(streetAddress);
     } else {
       console.log("Cool!");
     }
   };
+
+
 
   return (
     <main className="new-warehouse">

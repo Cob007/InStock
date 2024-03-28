@@ -1,0 +1,17 @@
+@use '../../../partials/globals' as *;
+@use '../../../partials/mixins' as *;
+@use '../../../partials/variables' as *;
+
+.radio {
+  margin: 3px 8px 0 0;
+  
+}
+
+.radio-label {
+    color: $Slate;
+    @include body-medium;
+}
+
+input[type="radio"]:checked + label {
+    color: $Instock-Black;
+}

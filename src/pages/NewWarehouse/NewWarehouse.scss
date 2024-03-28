@@ -15,6 +15,11 @@
     margin: 0 32px;
   }
 
+  @include desktop {
+    width: 1020px;
+    margin: auto;
+  }
+
   &__divider,
   &__divider-responsive {
     background-color: $Cloud;

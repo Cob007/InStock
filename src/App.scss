@@ -1,5 +1,22 @@
+@use './partials/globals' as *;
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+
 #root {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
+body {
+  margin: 0;
+  background-color: $Light-Grey;
+}
+
+.backgroundBlack {
+  height: 56px;
+  width: 100%;
+  background-color: $Graphite;
+  position: absolute;
+  z-index: -1;
+}

@@ -1,0 +1,184 @@
+@import "../../partials/mixins";
+@import "../../partials/variables";
+
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    // background: rgba(49, 49, 49, 0.8);
+    background: rgba(36, 44, 64, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 0;
+    line-height: 1.4;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+        @include page-header;
+        margin-top: 60px;
+        height: 72px;
+        width: 343px;
+        padding: 0px 16px;
+
+    }
+
+    &__prompt {
+        height: 78px;
+        width: 343px;
+        padding: 0px 16px;
+    }
+}
+
+.buttons {
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    z-index: 1;
+
+    &__cancel {
+        width: 40%;
+        height: 36px;
+        border-radius: 20px;
+        color: $Cloud;
+        border: 1px $Cloud;
+    }
+
+    &__delete {
+        width: 40%;
+        height: 36px;
+        color: white;
+        border-radius: 20px;
+        background-color: $Red;
+        border: none;
+
+        &:hover {
+            background-color: $Graphite;
+        }
+    }
+
+}
+
+@include tablet {
+
+    .modal-content {
+        position: absolute;
+        left: 50%;
+        top: 22%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4;
+        background-color: white;
+        width: 90vw;
+        height: 25vh;
+
+
+        &__title {
+            @include page-header;
+            margin-top: 60px;
+            height: 40px;
+            width: 434px;
+            padding: 0px 32px;
+        }
+
+        &__prompt {
+            height: 56px;
+            width: 544px;
+            padding: 0px 32px;
+        }
+    }
+
+    .buttons {
+        padding-bottom: 24px;
+        display: flex;
+        justify-content: flex-end;
+        background-color: white;
+        z-index: 0;
+        margin: 0px 0px;
+        padding: 0px 32;
+
+        &__cancel {
+            width: 10%;
+            height: 38px;
+            border-radius: 20px;
+            color: $Cloud;
+            border: 1px $Cloud;
+        }
+
+        &__delete {
+            width: 10%;
+            height: 38px;
+            border-radius: 20px;
+            background-color: $Red;
+            margin-left: 16px;
+            margin-right: 32px;
+        }
+
+    }
+}
+
+@include desktop {
+
+
+    .modal-content {
+        position: absolute;
+        left: 50%;
+        top: 22%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4;
+        background-color: white;
+        width: 60vw;
+        height: 25vh;
+
+
+        &__title {
+            @include page-header;
+            margin-top: 60px;
+            height: 40px;
+            width: 434px;
+        }
+
+        &__prompt {
+            height: 56px;
+            width: 544px;
+        }
+    }
+
+    .buttons {
+        padding-bottom: 24px;
+        display: flex;
+        justify-content: flex-end;
+        background-color: white;
+
+        &__cancel {
+            width: 10%;
+            height: 38px;
+            border-radius: 20px;
+            color: $Cloud;
+            border: 1px $Cloud;
+        }
+
+        &__delete {
+            width: 10%;
+            height: 38px;
+            border-radius: 20px;
+            background-color: $Red;
+            margin-left: 16px;
+        }
+
+    }
+}

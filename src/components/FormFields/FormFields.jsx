@@ -7,9 +7,8 @@ const FormFields = (props) => {
 
   const changeCounter = (event) => {
     setChange(event.target.value);
+    props.setValue(event.target.value)
   };
-
-  console.log(props.valid);
 
   return (
     <div className="form">
@@ -21,6 +20,7 @@ const FormFields = (props) => {
           <div>
             <input
               required
+              value={props.value}
               className="form__field-input"
               placeholder={props.label}
               type="text"
@@ -33,6 +33,7 @@ const FormFields = (props) => {
           </div>
         ) : (
           <input
+            value={props.value}
             onChange={changeCounter}
             className="form__field-input"
             placeholder={props.label}

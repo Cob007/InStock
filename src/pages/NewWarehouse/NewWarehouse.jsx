@@ -4,9 +4,12 @@ import FormFields from "../../components/FormFields/FormFields";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewWarehouse = () => {
   const [valid, setValid] = useState(true);
+
+  const navigate = useNavigate()
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -24,8 +27,6 @@ const NewWarehouse = () => {
     ) {
       console.log("Error")
     } else {
-      console.log("Cool!");
-
       const warehouse_name = event.target.warehouseName.value
       const address = event.target.streetAddress.value
       const city = event.target.city.value
@@ -47,7 +48,7 @@ const NewWarehouse = () => {
           contact_email: contact_email
         });
         alert("Upload Successful");
-        navigate("/");
+        navigate("/warehouse");
       } catch (error) {
         console.log(error);
       }

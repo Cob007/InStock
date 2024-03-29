@@ -55,6 +55,8 @@ const NewWarehouse = () => {
     }
   };
 
+
+
   return (
     <main className="new-warehouse">
       <section className="new-warehouse__header-div">

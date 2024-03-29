@@ -1,8 +1,8 @@
 import "./TextareaField.scss";
 import { useEffect, useState } from "react";
-import error from '../../../assets/Icons/error-24px.svg'
+import error from "../../../assets/Icons/error-24px.svg";
 
-const TextareaField = ({ inputName, valid, label } ) => {
+const TextareaField = ({ inputName, valid, label }) => {
   const [textarea, setTextarea] = useState("");
 
   const changeTextarea = (event) => {
@@ -11,8 +11,8 @@ const TextareaField = ({ inputName, valid, label } ) => {
 
   return (
     <div className="form">
-      <div className="form__field-div">
-        <label className="form__field-label" htmlFor={inputName}>
+      <div className="form__field-textarea-div">
+        <label className="form__field-textarea-label" htmlFor={inputName}>
           {label}
         </label>
         {textarea === "" && valid === false ? (

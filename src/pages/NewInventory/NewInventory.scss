@@ -25,6 +25,24 @@
         margin: 32px 0 24px 16px;
         @include page-header;
     }
+
+    @media (min-width: 768px) {
+        margin: 0 36px;
+
+        &__header-div {
+            padding: 0 32px;
+        }
+
+        &__back-arrow {
+            margin-top: 40px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        width: 1020px;
+        margin: auto;
+    }
+
 }
 
 .inventory-form {
@@ -35,19 +53,20 @@
     &__section-one {
         display: flex;
         flex-direction: column;
+        padding: 16px;
+        border-top: 1px solid $Cloud;
     }
 
     &__section-two {
         display: flex;
         flex-direction: column;
-        margin-top: 16px;
+        padding: 16px;
+        border-top: 1px solid $Cloud;
     }
 
     &__section-header {
         @include subheader;
-        padding: 16px 16px 16px 16px;
-        margin: 0;
-        border-top: 1px solid $Cloud;
+        margin: 0 0 16px 0;
     }
 
     &__radio-buttons {
@@ -57,11 +76,11 @@
 
     &__radio-header {
         @include labels-links-buttons;
-        margin: 0 0 4px 16px;
+        margin:  0 0 4px 0;
     }
 
     &__radio-selections {
-        margin: 0 16px;
+        margin: 0;
         display: flex;
         justify-content: flex-start;
         gap: 50px;
@@ -80,7 +99,6 @@
         display: flex;
         padding: 8px 16px;
         background-color: $Light-Grey;
-        margin-top: 16px;
         gap: 8px;
     }
 
@@ -99,12 +117,64 @@
             color: #FFFF;
         }
     }
-}
 
-fieldset {
-    border: none; 
-}
+    @media (min-width: 768px) {
 
-fieldset:active {
-    color: hotpink;
+        &__top-section {
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid $Cloud;
+            margin-bottom: 24px;
+        }
+
+        &__section-one {
+            width: 100%;
+            padding: 0 24px 0 36px;
+            margin-top: 24px;
+            border-right: 1px solid $Cloud;
+            border-top: unset;
+        }
+
+        &__section-two {
+            width: 100%;
+            margin-top: 24px;
+            padding: 0 36px 0 24px;
+            border-top: unset;
+        }
+
+        &__section-header {
+            margin: 0 0 24px 0;
+            border-top: none;
+        }
+
+        &__radio-header {
+            margin: 0;
+        }
+
+        &__buttons {
+            justify-content: flex-end;
+            padding: 16px 32px;
+            gap: 12px;
+        }
+
+        &__button {
+            height: 38px;
+            width: unset;
+            padding: 0 16px;
+
+            &--submit {
+                padding: 0 16px;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        &__buttons {
+            margin-top: 24px;
+        }
+
+        &__section-one {
+            padding: 0 24px 16px 36px;
+        }
+    }
 }

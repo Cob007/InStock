@@ -8,18 +8,23 @@
     &__selector-field-div {
         display: flex;
         flex-direction: column;
+        margin: 16px 0 0 0;
     }
 
     &__selector-field-label {
         @include labels-links-buttons;
-        margin: 0 16px 4px 16px;
+        margin: 0 0 4px 0;
+    }
+
+    &__selector-field {
+        display: flex;
+        flex-direction: column;
     }
 
     &__selector-field-dropdown {
         border: 1px solid $Cloud;
         border-radius: 20px;
         height: 36px;
-        margin: 0 16px;
         @include body-medium;
         padding: 0 16px;
         -webkit-appearance: none;
@@ -27,7 +32,6 @@
         background-repeat: no-repeat;
         background-position: right 16px center;
         background-size: 1rem;
-        margin-right: 16px;
         color: $Slate;
 
         &:focus {
@@ -48,7 +52,6 @@
 
     &__error-div-dropdown {
         display: flex;
-        margin-left: 16px;
     }
 
     &__error-icon {
@@ -59,5 +62,20 @@
     &__error-message {
         color: $Red;
         @include body-small
+    }
+
+    @media (min-width: 768px) {
+
+        &__selector-field-div {
+            margin-top: 24px;
+        }
+
+        &__selector-field-label {
+            margin: 0 0 4px 0;
+        }
+    
+        &__selector-field-dropdown {
+            margin: 0;
+        }
     }
 }

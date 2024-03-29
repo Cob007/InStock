@@ -4,17 +4,16 @@
 
 .form {
 
-    &__field-div {
+    &__field-number-div {
         display: flex;
         flex-direction: column;
-        margin: 0 16px 16px 16px;
     }
 
-    &__field-label {
+    &__field-number-label {
         @include labels-links-buttons;
     }
 
-    &__field-input {
+    &__field-number-input {
         margin-top: 4px;
         border-radius: 20px;
         border-style: solid;

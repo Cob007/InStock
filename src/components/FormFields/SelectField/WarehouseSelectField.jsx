@@ -18,16 +18,13 @@ const WarehouseSelectField = (props) => {
     setWarehouse(event.target.value);
   };
 
-  console.log(props.valid);
- /*  console.log(warehouse); */
-
   return (
     <div className="form__selector-field-div">
       <label className="form__selector-field-label" htmlFor="warehouse">
         Warehouse
       </label>
       {warehouse === "" && props.valid === false ? (
-          <div className="form__selector-field-div">
+          <div className="form__selector-field">
             <select
             required
             className="form__selector-field-dropdown"
@@ -48,7 +45,7 @@ const WarehouseSelectField = (props) => {
           </div>
           </div>
       ) : (
-        <div className="form__selector-field-div">
+        <div className="form__selector-field">
         <select
           className="form__selector-field-dropdown"
           name="warehouse"

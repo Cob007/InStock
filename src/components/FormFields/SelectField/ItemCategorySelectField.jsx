@@ -1,6 +1,6 @@
 import "../SelectField/SelectField.scss";
 import { useState } from "react";
-import error from '../../../assets/Icons/error-24px.svg'
+import error from "../../../assets/Icons/error-24px.svg";
 
 const ItemCategorySelectField = (props) => {
   const itemCategoryData = [
@@ -16,52 +16,53 @@ const ItemCategorySelectField = (props) => {
     setitemCategory(event.target.value);
   };
 
-  console.log(props.valid);
-  console.log(itemCategory);
-
   return (
     <div className="form__selector-field-div">
       <label className="form__selector-field-label" htmlFor="itemCategory">
         Category
       </label>
-      {itemCategory === "" && props.valid === false  ? (
-        <div className="form__selector-field-div">
-      <select
-        required
-        className="form__selector-field-dropdown"
-        name="itemCategory"
-        onChange={handleSelectChange}
-      >
-        <option hidden value="">
+      {itemCategory === "" && props.valid === false ? (
+        <div className="form__selector-field">
+          <select
+            required
+            className="form__selector-field-dropdown"
+            name="itemCategory"
+            onChange={handleSelectChange}
+          >
+            <option hidden value="">
               Please select
             </option>
-        {itemCategoryData.map((category, index) => (
-          <option key={index} value={category.value}>{category.name}</option>
-        ))}
-        ;
-      </select>
-      <div className="form__error-div-dropdown">
-      <img className="form__error-icon" src={error} alt="error icon" />
-      <p className="form__error-message">This field is required</p>
-    </div>
-    </div>
+            {itemCategoryData.map((category, index) => (
+              <option key={index} value={category.value}>
+                {category.name}
+              </option>
+            ))}
+            ;
+          </select>
+          <div className="form__error-div-dropdown">
+            <img className="form__error-icon" src={error} alt="error icon" />
+            <p className="form__error-message">This field is required</p>
+          </div>
+        </div>
       ) : (
-        <div className="form__selector-field-div"> 
-<select
-        key={itemCategoryData.value}
-        className="form__selector-field-dropdown"
-        name="itemCategory"
-        onChange={handleSelectChange}
-      >
-        <option hidden value="">
-            Please select
-          </option>
-        {itemCategoryData.map((category, index) => (
-          <option key={index} value={category.value}>{category.name}</option>
-        ))}
-        ;
-      </select> 
-      </div>
+        <div className="form__selector-field">
+          <select
+            key={itemCategoryData.value}
+            className="form__selector-field-dropdown"
+            name="itemCategory"
+            onChange={handleSelectChange}
+          >
+            <option hidden value="">
+              Please select
+            </option>
+            {itemCategoryData.map((category, index) => (
+              <option key={index} value={category.value}>
+                {category.name}
+              </option>
+            ))}
+            ;
+          </select>
+        </div>
       )}
     </div>
   );

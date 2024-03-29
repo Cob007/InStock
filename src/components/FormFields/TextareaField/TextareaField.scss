@@ -6,12 +6,13 @@
   margin-bottom: 0;
   box-sizing: border-box;
 
-  &__field-div {
+  &__field-textarea-div {
     display: flex;
     flex-direction: column;
+    margin: 16px 0 0 0;
   }
 
-  &__field-label {
+  &__field-textarea-label {
     @include labels-links-buttons;
   }
   
@@ -54,4 +55,15 @@
     color: $Red;
     @include body-small
   }
+
+  @media (min-width: 768px) {
+    &__field-textarea-div {
+      margin-top: 24px;
+    }
+
+    &__field-textarea {
+      height: 144px;
+    }
+  }
+
 }

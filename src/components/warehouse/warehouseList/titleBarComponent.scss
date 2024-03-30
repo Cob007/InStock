@@ -1,0 +1,158 @@
+@import '../../../partials/_variables.scss';
+@import '../../../partials/mixins.scss'; 
+
+.actionPanel{
+    z-index: 0;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    background-color: white;
+    width: calc(100vw - 32px);
+    padding: 32px 0;
+    @include tablet{
+        width: calc(100vw - 64px);
+        padding: 32px 0 16px 0;
+    }
+    @include desktop{
+        width: 1020px;
+    }
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 767px) {
+        margin-left: 16px;
+    }
+    @include desktop{
+        margin-left: 0px;
+
+    }
+    @include tablet{
+        flex-direction: row;
+    }
+
+
+    ::placeholder{
+        color:$Slate;
+    }
+    &__title{
+        padding: 0;
+        @include titillium-web-semibold;
+        color:$Instock-Black;
+        font-size: 36px;
+        margin:8px 40px ;
+        margin-top: 0;
+    }
+    @include tablet{
+        align-items: center;
+    }
+    &__searchbar{
+        border-radius: 50px;
+        padding:15px;
+        border: $Cloud solid 1px;
+        margin: 8px 40px;
+        @include tablet{
+            display: flex;
+            margin: 0;
+            width: 30%;
+            margin: 0px;
+            padding: 0 15px;
+            height: 40px;
+        }
+        @include desktop{
+            width: 162px;
+            
+        }
+    }
+    &__button{
+        @media (max-width: 767px) {
+            display: flex;
+            justify-content: center;
+        }
+        text-decoration: none;
+        margin: 0 40px;
+        padding: 0;
+        background-color: $Instock-Indigo;
+        &:hover{
+            background-color: rgba(46, 102, 229, .9);
+        }
+        color: white;
+        padding: 10px 15px;
+        border:0;
+        border-radius: 30px;
+        width: auto;
+    }
+    @include desktop{
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        width: 1100px;
+
+    }
+    .notLogo{
+        display: flex;
+        flex-direction: column;
+        @include tablet{
+            align-items: center;
+            flex-direction: row;
+        }
+    }
+}
+.searchIcon{
+        left: calc(100vw - 100px);
+        top: 228px;
+    position: absolute;
+    @include tablet{
+        top:122px;
+        left: calc(100vw - 356px);
+    }
+    @include desktop{
+        left: calc(100vw - (50vw - 230px) );
+        margin:0 auto;
+    }
+}
+
+.notMobile{
+    justify-content: space-between;
+    @media (max-width: 767px) {
+        display: none;
+    }
+    margin:0 16px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.parent{
+    @include tablet{
+        display: flex;
+        justify-content: center;
+    }
+}
+.title{
+    justify-self: space-between;
+        padding: 10px 32px;
+        color:$Slate;
+}
+.sortTitle{
+    display: flex;
+}
+.warehouseList{
+    &__label{
+        justify-content: space-between;
+        margin:0 16px;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: row;
+        width: calc(100vw - 32px);
+        .categories{
+            display: flex;
+        }
+        @include tablet{
+            padding: 0 40px;
+            margin-left: 24px;
+            max-width: calc(100vw - 112px)
+        }
+        @include desktop{
+            display: flex;
+            margin:0 auto;
+            max-width: 1020px;
+        }
+    }
+}

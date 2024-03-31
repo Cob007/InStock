@@ -27,25 +27,26 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    // position: relative;
 
     &__title {
         @include page-header;
-        margin-top: 60px;
-        height: 72px;
-        width: 343px;
-        padding: 0px 16px;
+        margin-top: 3.75rem;
+        height: 4.5rem;
+        width: 21.438rem;
+        padding: 0rem 1rem;
 
     }
 
     &__prompt {
-        height: 78px;
-        width: 343px;
-        padding: 0px 16px;
+        height: 4.875rem;
+        width: 21.438rem;
+        padding: 0rem 1rem;
     }
 }
 
 .buttons {
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
     display: flex;
     justify-content: space-evenly;
     background-color: white;
@@ -53,17 +54,24 @@
 
     &__cancel {
         width: 40%;
-        height: 36px;
-        border-radius: 20px;
-        color: $Cloud;
-        border: 1px $Cloud;
+        height: 2.25rem;
+        border-radius: 1.25rem;
+        background-color: white;
+        color: $Slate;
+        border-color: $Cloud;
+        border-style: solid;
+
+        &:hover {
+            color: $Instock-Indigo;
+            border-color: $Instock-Indigo;
+        }
     }
 
     &__delete {
         width: 40%;
-        height: 36px;
+        height: 2.25rem;
         color: white;
-        border-radius: 20px;
+        border-radius: 1.25rem;
         background-color: $Red;
         border: none;
 
@@ -72,6 +80,12 @@
         }
     }
 
+}
+
+.closeButton {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }
 
 @include tablet {
@@ -85,47 +99,48 @@
         background-color: white;
         width: 90vw;
         height: 25vh;
+        border-radius: 0.25rem;
 
 
         &__title {
             @include page-header;
-            margin-top: 60px;
-            height: 40px;
-            width: 434px;
-            padding: 0px 32px;
+            margin-top: 3.75rem;
+            height: 2.5rem;
+            width: 27.125rem;
+            padding: 0rem 4rem;
         }
 
         &__prompt {
-            height: 56px;
-            width: 544px;
-            padding: 0px 32px;
+            height: 3.5rem;
+            width: 34rem;
+            padding: 0rem 4rem;
         }
     }
 
     .buttons {
-        padding-bottom: 24px;
+
         display: flex;
         justify-content: flex-end;
         background-color: white;
         z-index: 0;
-        margin: 0px 0px;
-        padding: 0px 32;
+        margin: 0rem 0rem;
+        padding: 0rem 2rem;
+        border-radius: 0.25rem;
+        padding-bottom: 1.5rem;
 
         &__cancel {
             width: 10%;
-            height: 38px;
-            border-radius: 20px;
-            color: $Cloud;
-            border: 1px $Cloud;
+            height: 2.375rem;
+            border-radius: 1.25rem;
         }
 
         &__delete {
             width: 10%;
-            height: 38px;
-            border-radius: 20px;
+            height: 2.375rem;
+            border-radius: 1.25rem;
             background-color: $Red;
-            margin-left: 16px;
-            margin-right: 32px;
+            margin-left: 1rem;
+            margin-right: 2rem;
         }
 
     }
@@ -147,37 +162,35 @@
 
         &__title {
             @include page-header;
-            margin-top: 60px;
-            height: 40px;
-            width: 434px;
+            margin-top: 3.75rem;
+            height: 2.5rem;
+            width: 27.125rem;
         }
 
         &__prompt {
-            height: 56px;
-            width: 544px;
+            height: 3.5rem;
+            width: 34rem;
         }
     }
 
     .buttons {
-        padding-bottom: 24px;
+        padding-bottom: 1.5rem;
         display: flex;
         justify-content: flex-end;
         background-color: white;
 
         &__cancel {
             width: 10%;
-            height: 38px;
-            border-radius: 20px;
-            color: $Cloud;
-            border: 1px $Cloud;
+            height: 2.375rem;
+            border-radius: 1.25rem;
         }
 
         &__delete {
             width: 10%;
-            height: 38px;
-            border-radius: 20px;
+            height: 2.375rem;
+            border-radius: 1.25rem;
             background-color: $Red;
-            margin-left: 16px;
+            margin-left: 1rem;
         }
 
     }

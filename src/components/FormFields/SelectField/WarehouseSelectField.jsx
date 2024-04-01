@@ -4,13 +4,13 @@ import error from "../../../assets/Icons/error-24px.svg";
 
 const WarehouseSelectField = (props) => {
   const warehouseData = [
-    { name: "Jersey", value: "Jersey" }, //may have to change value here to the warehouse_id number of the warehouse 
-    { name: "Manhattan", value: "Manhattan" },
-    { name: "Miami", value: "Miami" },
-    { name: "San Fran", value: "San Fran" },
-    { name: "Santa Monica", value: "Santa Monica" },
-    { name: "Seattle", value: "Seattle" },
-    { name: "Washington", value: "Washington" },
+    { name: "Jersey", value: "3" },
+    { name: "Manhattan", value: "1" },
+    { name: "Miami", value: "7" },
+    { name: "San Fran", value: "4" },
+    { name: "Santa Monica", value: "5" },
+    { name: "Seattle", value: "6" },
+    { name: "Washington", value: "2" },
   ];
 
   const [warehouse, setWarehouse] = useState("");

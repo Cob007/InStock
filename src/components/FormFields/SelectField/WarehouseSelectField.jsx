@@ -4,7 +4,7 @@ import error from "../../../assets/Icons/error-24px.svg";
 
 const WarehouseSelectField = (props) => {
   const warehouseData = [
-    { name: "Jersey", value: "Jersey" },
+    { name: "Jersey", value: "Jersey" }, //may have to change value here to the warehouse_id number of the warehouse 
     { name: "Manhattan", value: "Manhattan" },
     { name: "Miami", value: "Miami" },
     { name: "San Fran", value: "San Fran" },

@@ -1,0 +1,53 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+
+.cont {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgba(19, 24, 44, 0.1);
+
+    @include tablet {
+        margin: 0 36px;
+    }
+
+    @include desktop {
+        width: 1020px;
+        margin: auto;
+    }
+
+    &__header-section {
+        padding: 24px;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+    }
+
+    &__header {
+        margin: 24px 0;
+        @include page-header;
+
+        @include tablet {
+            width: 50%;
+            margin: 0;
+        }
+    }  
+
+    &__widget {
+        @include tablet {
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}

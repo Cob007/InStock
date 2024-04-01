@@ -7,10 +7,13 @@ import NumberField from "../../components/FormFields/NumberField/NumberField";
 import TextareaField from "../../components/FormFields/TextareaField/TextareaField";
 import RadioButton from "../../components/FormFields/RadioButton/RadioButton";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const NewInventory = () => {
   const [valid, setValid] = useState(true);
+
+  const navigate = useNavigate();
 
   //radio button start
   const [stockStatus, setStockStatus] = useState("inStock");
@@ -22,24 +25,39 @@ const NewInventory = () => {
   };
   //radio button end
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setValid(false);
 
-    const item_name = event.target.itemName.value;
+    try {
+      await axios.post("http://localhost:8080/inventories", {
+      warehouse_id: event.target.warehouse.value,
+      item_name: event.target.itemName.value,
+      description: event.target.itemDescription.value,
+      category: event.target.itemCategory.value,
+      status: event.target.stockStatus.value,
+      quantity: event.target.quantity.value,
+    });
+    alert("Item has successfully uploaded");
+    navigate("/inventory");
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  /* const item_name = event.target.itemName.value;
     const item_description = event.target.itemDescription.value;
     const item_category = event.target.itemCategory.value;
     const item_status = event.target.stockStatus.value;
     const item_quantity = event.target.quantity.value;
-    const warehouse_name = event.target.warehouse.value;
+    const warehouse_name = event.target.warehouse.value; */
 
-    console.log(item_name);
+ /* console.log(item_name);
     console.log(item_description);
     console.log(item_category);
     console.log(item_status);
     console.log(item_quantity);
-    console.log(warehouse_name);
-  };
+    console.log(warehouse_name); */
 
   return (
     <main className="new-inventory">

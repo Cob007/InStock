@@ -7,7 +7,7 @@ const FormFields = (props) => {
 
   const changeCounter = (event) => {
     setChange(event.target.value);
-    props.setValue(event.target.value)
+    /* props.setValue(event.target.value) */
   };
 
   return (

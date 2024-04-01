@@ -27,6 +27,7 @@ const WarehouseSelectField = (props) => {
           <div className="form__selector-field">
             <select
             required
+            value={props.value}
             className="form__selector-field-dropdown"
             name="warehouse"
             onChange={handleSelectChange}
@@ -47,6 +48,7 @@ const WarehouseSelectField = (props) => {
       ) : (
         <div className="form__selector-field">
         <select
+        value={props.value}
           className="form__selector-field-dropdown"
           name="warehouse"
           onChange={handleSelectChange}

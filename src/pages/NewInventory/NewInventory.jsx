@@ -13,12 +13,12 @@ const NewInventory = () => {
   const [valid, setValid] = useState(true);
 
   //radio button start
-  const [stockStatus, setStockStatus] = useState("inStock");
-  const radioInStockChange = () => {
-    setStockStatus("inStock");
+  const [inStock, setInStock] = useState(false);
+  const handleInStock = () => {
+    setInStock(true);
   };
-  const radioOutOfStockChange = () => {
-    setStockStatus("outOfStock");
+  const handleOutOfStock = () => {
+    setInStock(false);
   };
   //radio button end
 
@@ -29,7 +29,7 @@ const NewInventory = () => {
     const item_name = event.target.itemName.value;
     const item_description = event.target.itemDescription.value;
     const item_category = event.target.itemCategory.value;
-    const item_status = event.target.stockStatus.value;
+    const item_status = event.target.inStock.value;
     const item_quantity = event.target.quantity.value;
     const warehouse_name = event.target.warehouse.value;
 
@@ -75,19 +75,21 @@ const NewInventory = () => {
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="In stock"
-                    name="stockStatus"
+                    name="inStock"
                     dataName="In Stock"
-                    value={stockStatus === "inStock"}
-                    onChange={radioInStockChange}
+                    value="inStock"
+                    checked={inStock}
+                    onChange={handleInStock}
                   />
                 </div>
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="Out of stock"
-                    name="stockStatus"
+                    name="inStock"
                     dataName="Out of Stock"
-                    value={stockStatus === "outOfStock"}
-                    onChange={radioOutOfStockChange}
+                    value="outOfStock"
+                    checked={inStock}
+                    onChange={handleOutOfStock}
                   />
                 </div>
               </div>

@@ -18,6 +18,7 @@ const NumberField = (props) => {
         {change === "" && props.valid === false ? (
           <div>
             <input
+            value={props.value}
               required
               className="form__field-number-input"
               placeholder="0"
@@ -31,6 +32,7 @@ const NumberField = (props) => {
           </div>
         ) : (
           <input
+          value={props.value}
             onChange={changeCounter}
             className="form__field-number-input"
             placeholder="0"

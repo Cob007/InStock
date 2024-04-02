@@ -9,12 +9,31 @@
 
     @include tablet {
         flex-direction: row;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
     }
     
 
     &__group {
         display: flex;
         flex-direction: row;
+        @include tablet {
+            width: 85%;
+
+        }
+        
+    }
+
+    &__subgroup-one {
+        width: 50%;
+
+        @include tablet{
+            display: flex;
+            flex-direction: row;
+            width: 45%;
+
+        }
     }
 
     &__subgroup {
@@ -23,11 +42,48 @@
         @include tablet{
             display: flex;
             flex-direction: row;
+            width: 55%;
+
+        }
+    }
+
+    &__element-inven {
+
+        @include tablet {
+            width: 55%;
+            margin: 0 0 0 25px;  
+        }
+    }
+    &__element-status {
+        @include tablet {
+            width: 40%;
+            margin: 0;  
+        }
+    }
+    &__element-qty {
+        margin: 20px 0 0 0;
+
+        @include tablet {
+            width: 20%;
+            margin: 0;  
+        }
+    }
+    &__element-warehouses {
+        margin: 20px 0 0 0;
+
+        @include tablet {
+            width: 40%;
+            margin: 0;  
         }
     }
 
     &__element {
         margin: 20px 0 0 0;
+
+        @include tablet {
+            width: 50%;
+            margin: 0;  
+        }
     }
 
     &__label {
@@ -44,6 +100,11 @@
     &__name-div {
         display: flex;
         flex-direction: row;
+
+        @include tablet {
+            width: 50%;
+        }
+
     }
 
     &__name {
@@ -56,11 +117,30 @@
         @include titillium-web-regular;
         color: black;
         font-size: 1.2rem;
+
+        @include tablet {
+            width: 25%;
+        }
+        &--tablet{
+            @include titillium-web-regular;
+            color: black;
+            font-size: 1.2rem;
+            @include tablet {
+                text-align: center;
+            }
+        }
     }
 
     &__icons-section {
         display: flex;
         justify-content: space-between;
+        @include tablet{
+            display: flex;
+            flex-direction: row;
+            width: 15%;
+            justify-content: space-evenly;
+
+        }
     }
 
     &__icon {

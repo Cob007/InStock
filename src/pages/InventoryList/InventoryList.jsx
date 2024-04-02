@@ -1,12 +1,23 @@
 import { useEffect, useState } from "react";
 import AddButton from "../../components/AddButton/AddButton";
 import SearchInput from "../../components/SearchInput/SeachInput";
+import SortIcon from "../../assets/Icons/sort-24px.svg"
 import "./InventoryList.scss";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
+import axios from "axios";
 const InventoryList = () => {
-  const [inventoryList, setInventoryList] = useState([{ id: 1 }, { id: 2 }]);
 
-  const loadRemoteInventory = async () => {};
+
+  const [inventoryList, setInventoryList] = useState([]);
+
+  const loadRemoteInventory = async () => {
+    try {
+        const data = await axios.get("http://localhost:8080/inventories")
+        setInventoryList(data.data)
+    }catch (err){
+        console.log(err)
+    }
+  };
 
   useEffect(() => {
     loadRemoteInventory();
@@ -21,6 +32,36 @@ const InventoryList = () => {
           <AddButton />
         </section>
       </article>
+      <section className="cont__table-def">
+        <div className="cont__item">
+            <p className=" cont__rows-inven" >INVENTORY ITEM</p>
+            <img className="cont__rows-icon" src={SortIcon} alt="sort icon image" />
+        </div>
+
+        <div className="cont__rows">
+            <p className="cont__rows-name">CATEGORY</p>
+            <img className="cont__rows-icon" src={SortIcon} alt="sort icon image" />
+        </div>
+
+        <div className="cont__rows">
+            <p className="cont__rows-name">STATUS</p>
+            <img className="cont__rows-icon" src={SortIcon} alt="sort icon image" />
+        </div>
+
+        <div className="cont__rows cont__qty">
+            <p className="cont__rows-name">QTY</p>
+            <img className="cont__rows-icon" src={SortIcon} alt="sort icon image" />
+        </div>
+
+        <div className="cont__rows">
+            <p className="cont__rows-name">WAREHOUSE</p>
+            <img className="cont__rows-icon" src={SortIcon} alt="sort icon image" />
+        </div>
+
+        <div className="cont__rows cont__action">
+            <p className="cont__rows-name">ACTIONS</p>
+        </div>
+      </section>
       {inventoryList.map((inventory, index) => (
         <div key={index}>
             <div className="cont__divider" />

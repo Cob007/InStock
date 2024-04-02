@@ -16,12 +16,12 @@ const NewInventory = () => {
   const navigate = useNavigate();
 
   //radio button start
-  const [stockStatus, setStockStatus] = useState("inStock");
-  const radioInStockChange = () => {
-    setStockStatus("inStock");
+  const [inStock, setInStock] = useState(false);
+  const handleInStock = () => {
+    setInStock(true);
   };
-  const radioOutOfStockChange = () => {
-    setStockStatus("outOfStock");
+  const handleOutOfStock = () => {
+    setInStock(false);
   };
   //radio button end
 
@@ -35,7 +35,7 @@ const NewInventory = () => {
       item_name: event.target.itemName.value,
       description: event.target.itemDescription.value,
       category: event.target.itemCategory.value,
-      status: event.target.stockStatus.value,
+      status: event.target.inStock.value,
       quantity: event.target.quantity.value,
     });
     alert("Item has successfully uploaded");
@@ -93,19 +93,21 @@ const NewInventory = () => {
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="In stock"
-                    name="stockStatus"
+                    name="inStock"
                     dataName="In Stock"
-                    value={stockStatus === "inStock"}
-                    onChange={radioInStockChange}
+                    value="inStock"
+                    checked={inStock}
+                    onChange={handleInStock}
                   />
                 </div>
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="Out of stock"
-                    name="stockStatus"
+                    name="inStock"
                     dataName="Out of Stock"
-                    value={stockStatus === "outOfStock"}
-                    onChange={radioOutOfStockChange}
+                    value="outOfStock"
+                    checked={inStock}
+                    onChange={handleOutOfStock}
                   />
                 </div>
               </div>

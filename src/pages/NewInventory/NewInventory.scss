@@ -93,6 +93,10 @@
 
     &__quantity {
         margin-top: 16px;
+
+        &--hidden {
+            display: none;
+        }
     }
 
     &__buttons {

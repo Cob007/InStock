@@ -16,48 +16,50 @@ const NewInventory = () => {
   const navigate = useNavigate();
 
   //radio button start
-  const [inStock, setInStock] = useState(false);
+  const [stockStatus, setStockStatus] = useState("inStock");
   const handleInStock = () => {
-    setInStock(true);
+    setStockStatus("inStock");
   };
   const handleOutOfStock = () => {
-    setInStock(false);
+    setStockStatus("outOfStock");
   };
   //radio button end
+
+  
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setValid(false);
 
-    try {
-      await axios.post("http://localhost:8080/inventories", {
-      warehouse_id: event.target.warehouse.value,
-      item_name: event.target.itemName.value,
-      description: event.target.itemDescription.value,
-      category: event.target.itemCategory.value,
-      status: event.target.inStock.value,
-      quantity: event.target.quantity.value,
-    });
-    alert("Item has successfully uploaded");
-    navigate("/inventory");
-    } catch (error) {
-      console.log(error)
-    }
-  };
-
-  /* const item_name = event.target.itemName.value;
+    const item_name = event.target.itemName.value;
     const item_description = event.target.itemDescription.value;
     const item_category = event.target.itemCategory.value;
     const item_status = event.target.stockStatus.value;
     const item_quantity = event.target.quantity.value;
-    const warehouse_name = event.target.warehouse.value; */
+    const warehouse_name = event.target.warehouse.value;
 
- /* console.log(item_name);
+  console.log(item_name);
     console.log(item_description);
     console.log(item_category);
     console.log(item_status);
     console.log(item_quantity);
-    console.log(warehouse_name); */
+    console.log(warehouse_name);
+
+    try {
+      await axios.post("http://localhost:8080/inventories", {
+        warehouse_id: event.target.warehouse.value,
+        item_name: event.target.itemName.value,
+        description: event.target.itemDescription.value,
+        category: event.target.itemCategory.value,
+        status: event.target.stockStatus.value,
+        quantity: event.target.quantity.value,
+      });
+      alert("Item has successfully uploaded");
+      navigate("/inventory");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <main className="new-inventory">
@@ -93,32 +95,39 @@ const NewInventory = () => {
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="In stock"
-                    name="inStock"
+                    name="stockStatus"
                     dataName="In Stock"
-                    value="inStock"
-                    checked={inStock}
+                    value={stockStatus === "inStock"}
                     onChange={handleInStock}
                   />
                 </div>
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="Out of stock"
-                    name="inStock"
+                    name="stockStatus"
                     dataName="Out of Stock"
-                    value="outOfStock"
-                    checked={inStock}
+                    value={stockStatus === "outOfStock"}
                     onChange={handleOutOfStock}
                   />
                 </div>
               </div>
             </div>
+            { stockStatus === "inStock" ? 
             <div className="inventory-form__quantity">
               <NumberField
+                id="quantityField"
                 label="Quantity"
                 inputName="quantity"
                 valid={valid}
               />
-            </div>
+            </div> : <div className="inventory-form__quantity--hidden">
+              <NumberField
+                id="quantityField"
+                label="Quantity"
+                inputName="quantity"
+                valid={valid}
+                value="0" /> 
+                </div> }
             <WarehouseSelectField inputName="warehouse" valid={valid} />
           </div>
         </div>
@@ -129,7 +138,7 @@ const NewInventory = () => {
               + Add Item
             </button>
           </div>
-        </div> 
+        </div>
       </form>
     </main>
   );

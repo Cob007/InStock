@@ -1,3 +1,44 @@
 @use '../../partials/globals' as *;
 @use '../../partials/mixins' as *;
 @use '../../partials/variables' as *;
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+
+    @include tablet {
+        flex-direction: row;
+    }
+    
+
+    &__group {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__subgroup {
+        width: 50%;
+
+        @include tablet{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__label {
+        @include subheader;
+        text-transform:uppercase;
+        color: $Slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+

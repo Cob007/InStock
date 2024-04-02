@@ -8,8 +8,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const EditWarehouse = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   let warehouseId = useParams();
   let getId = warehouseId.warehouseID;
@@ -79,11 +78,13 @@ const EditWarehouse = () => {
   return (
     <main className="edit-warehouse">
       <section className="edit-warehouse__header-div">
-        <img
-          className="edit-warehouse__back-arrow"
-          src={ArrowBack}
-          alt="Arrow Back"
-        />
+        <Link to="/warehouse">
+          <img
+            className="edit-warehouse__back-arrow"
+            src={ArrowBack}
+            alt="Arrow Back"
+          />
+        </Link>
         <h1 className="edit-warehouse__header">Edit Warehouse</h1>
       </section>
       <div className="edit-warehouse__divider"></div>

@@ -1,4 +1,3 @@
-import "./NewInventory.scss";
 import FormFields from "../../components/FormFields/FormFields";
 import WarehouseSelectField from "../../components/FormFields/SelectField/WarehouseSelectField";
 import ItemCategoryeSelectField from "../../components/FormFields/SelectField/ItemCategorySelectField";
@@ -7,15 +6,18 @@ import NumberField from "../../components/FormFields/NumberField/NumberField";
 import TextareaField from "../../components/FormFields/TextareaField/TextareaField";
 import RadioButton from "../../components/FormFields/RadioButton/RadioButton";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const NewInventory = () => {
-  const [valid, setValid] = useState(true);
-
+const EditInventory = () => {
   const navigate = useNavigate();
 
-  //radio button start
+  let itemId = useParams();
+  let inventoryId = itemId.itemID;
+
+  const [valid, setValid] = useState(true);
+  const [inventoryData, setInventoryData] = useState(null);
+
   const [stockStatus, setStockStatus] = useState("In Stock");
   const radioInStockChange = () => {
     setStockStatus("In Stock");
@@ -23,30 +25,13 @@ const NewInventory = () => {
   const radioOutOfStockChange = () => {
     setStockStatus("Out of Stock");
   };
-  //radio button end
-
-  
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setValid(false);
 
-    /* const item_name = event.target.itemName.value;
-    const item_description = event.target.itemDescription.value;
-    const item_category = event.target.itemCategory.value;
-    const item_status = event.target.inStock.value;
-    const item_quantity = event.target.quantity.value;
-    const warehouse_name = event.target.warehouse.value;
-
-  console.log(item_name);
-    console.log(item_description);
-    console.log(item_category);
-    console.log(item_status);
-    console.log(item_quantity);
-    console.log(warehouse_name); */
-
     try {
-      await axios.post("http://localhost:8080/inventories", {
+      await axios.put(`http://localhost:8080/inventories/${inventoryId}`, {
         warehouse_id: event.target.warehouse.value,
         item_name: event.target.itemName.value,
         description: event.target.itemDescription.value,
@@ -54,12 +39,31 @@ const NewInventory = () => {
         status: event.target.stockStatus.value,
         quantity: event.target.quantity.value,
       });
-      alert("Item has successfully uploaded");
+      console.log(onSubmit)
+      alert("Edit Successful");
       navigate("/inventory");
     } catch (error) {
       console.log(error);
     }
   };
+
+  const getInventoryData = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/inventories/${inventoryId}`
+      );
+      setInventoryData(response.data);
+      setStockStatus(response.data.status)
+      console.log(response.data.status)
+      console.log(stockStatus)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getInventoryData();
+  }, []);
 
   return (
     <main className="new-inventory">
@@ -71,19 +75,35 @@ const NewInventory = () => {
             alt="Arrow Back"
           />
         </Link>
-        <h3 className="new-inventory__header">Add New Inventory Item</h3>
+        <h3 className="new-inventory__header">Edit Inventory Item</h3>
       </section>
+      {inventoryData === null ? (
+        <p>Loading...</p>
+      ) : (
       <form className="inventory-form" noValidate onSubmit={onSubmit}>
         <div className="inventory-form__top-section">
           <div className="inventory-form__section-one">
             <h2 className="inventory-form__section-header">Item Details </h2>
-            <FormFields label="Item Name" inputName="itemName" valid={valid} />
+            <FormFields
+              value={inventoryData.item_name}
+              setValue={setInventoryData}
+              label="Item Name"
+              inputName="itemName"
+              valid={valid}
+            />
             <TextareaField
+              value={inventoryData.description}
+              setValue={setInventoryData}
               label="Description"
               inputName="itemDescription"
               valid={valid}
             />
-            <ItemCategoryeSelectField inputName="itemCategory" valid={valid} />
+            <ItemCategoryeSelectField
+              value={inventoryData.category}
+              setValue={setInventoryData}
+              inputName="itemCategory"
+              valid={valid}
+            />
           </div>
           <div className="inventory-form__section-two">
             <h3 className="inventory-form__section-header">
@@ -97,9 +117,10 @@ const NewInventory = () => {
                     label="In stock"
                     name="stockStatus"
                     dataName="In Stock"
-                    value={stockStatus === "In Stock"}
-                    check={stockStatus === "In Stock"}
+                    value={stockStatus === inventoryData.status}
+                    check={stockStatus === "In Stock" ? true : false}
                     onChange={radioInStockChange}
+                    setValue={setInventoryData}
                   />
                 </div>
                 <div className="inventory-form__radio-group">
@@ -107,9 +128,10 @@ const NewInventory = () => {
                     label="Out of stock"
                     name="stockStatus"
                     dataName="Out of Stock"
-                    value={stockStatus === "Out of Stock"}
-                    check={stockStatus === "Out of Stock"}
+                    value={stockStatus === inventoryData.status}
+                    check={stockStatus === "Out of Stock" ? true : false}
                     onChange={radioOutOfStockChange}
+                    setValue={setInventoryData}
                   />
                 </div>
               </div>
@@ -117,7 +139,8 @@ const NewInventory = () => {
             { stockStatus === "In Stock" ? 
             <div className="inventory-form__quantity">
               <NumberField
-                id="quantityField"
+              value={inventoryData.quantity}
+              setValue={setInventoryData}
                 label="Quantity"
                 inputName="quantity"
                 valid={valid}
@@ -130,20 +153,21 @@ const NewInventory = () => {
                 valid={valid}
                 value="0" /> 
                 </div> }
-            <WarehouseSelectField inputName="warehouse" valid={valid} />
+            <WarehouseSelectField value={inventoryData.warehouse_id}
+              setValue={setInventoryData}inputName="warehouse" valid={valid} />
           </div>
         </div>
         <div className="inventory-form__bottom-section">
           <div className="inventory-form__buttons">
           <Link to="/inventory" className="inventory-form__link">Cancel</Link>
             <button className="inventory-form__button inventory-form__button--submit">
-              + Add Item
+              Save
             </button>
           </div>
         </div>
-      </form>
+      </form> )}
     </main>
   );
 };
 
-export default NewInventory;
+export default EditInventory;

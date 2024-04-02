@@ -14,6 +14,7 @@ const ItemCategorySelectField = (props) => {
   const [itemCategory, setitemCategory] = useState("");
   const handleSelectChange = (event) => {
     setitemCategory(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (
@@ -25,6 +26,7 @@ const ItemCategorySelectField = (props) => {
         <div className="form__selector-field">
           <select
             required
+            value={props.value}
             className="form__selector-field-dropdown"
             name="itemCategory"
             onChange={handleSelectChange}
@@ -47,6 +49,7 @@ const ItemCategorySelectField = (props) => {
       ) : (
         <div className="form__selector-field">
           <select
+          value={props.value}
             key={itemCategoryData.value}
             className="form__selector-field-dropdown"
             name="itemCategory"

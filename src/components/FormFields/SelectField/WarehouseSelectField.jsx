@@ -16,6 +16,7 @@ const WarehouseSelectField = (props) => {
   const [warehouse, setWarehouse] = useState("");
   const handleSelectChange = (event) => {
     setWarehouse(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (
@@ -27,6 +28,7 @@ const WarehouseSelectField = (props) => {
           <div className="form__selector-field">
             <select
             required
+            value={props.value}
             className="form__selector-field-dropdown"
             name="warehouse"
             onChange={handleSelectChange}
@@ -47,6 +49,7 @@ const WarehouseSelectField = (props) => {
       ) : (
         <div className="form__selector-field">
         <select
+        value={props.value}
           className="form__selector-field-dropdown"
           name="warehouse"
           onChange={handleSelectChange}

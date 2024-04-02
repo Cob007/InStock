@@ -5,7 +5,7 @@
 .card {
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 24px;
 
     @include tablet {
         flex-direction: row;
@@ -26,19 +26,67 @@
         }
     }
 
+    &__element {
+        margin: 20px 0 0 0;
+    }
+
     &__label {
         @include subheader;
         text-transform:uppercase;
         color: $Slate;
+        margin: 8px 0;
 
         @include tablet {
             display: none;
         }
     }
 
-    &__icons {
+    &__name-div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__name {
+        color: $Instock-Indigo;
+        @include titillium-web-semibold;
+        font-size: 1.2rem;
+    }
+
+    &__text {
+        @include titillium-web-regular;
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    &__icons-section {
         display: flex;
         justify-content: space-between;
     }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    &__instock {
+        text-align: center;
+        width: 90px;
+        border-radius: 15px;
+        background-color: rgba(21, 132, 99, 0.07);
+        color: $Green;
+        text-transform:uppercase;
+        font-weight: 600;
+    }
+
+    &__nostock {
+        text-align: center;
+        width: 140px;
+        border-radius: 15px;
+        background-color: rgba(201, 69, 21, 0.07);
+        color: $Red;
+        text-transform:uppercase;
+        font-weight: 600;
+    }
+
 }
 

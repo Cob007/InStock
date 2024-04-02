@@ -16,12 +16,12 @@ const NewInventory = () => {
   const navigate = useNavigate();
 
   //radio button start
-  const [stockStatus, setStockStatus] = useState("inStock");
-  const handleInStock = () => {
-    setStockStatus("inStock");
+  const [stockStatus, setStockStatus] = useState("In Stock");
+  const radioInStockChange = () => {
+    setStockStatus("In Stock");
   };
-  const handleOutOfStock = () => {
-    setStockStatus("outOfStock");
+  const radioOutOfStockChange = () => {
+    setStockStatus("Out of Stock");
   };
   //radio button end
 
@@ -31,7 +31,7 @@ const NewInventory = () => {
     event.preventDefault();
     setValid(false);
 
-    const item_name = event.target.itemName.value;
+    /* const item_name = event.target.itemName.value;
     const item_description = event.target.itemDescription.value;
     const item_category = event.target.itemCategory.value;
     const item_status = event.target.inStock.value;
@@ -43,7 +43,7 @@ const NewInventory = () => {
     console.log(item_category);
     console.log(item_status);
     console.log(item_quantity);
-    console.log(warehouse_name);
+    console.log(warehouse_name); */
 
     try {
       await axios.post("http://localhost:8080/inventories", {
@@ -95,24 +95,26 @@ const NewInventory = () => {
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="In stock"
-                    name="inStock"
+                    name="stockStatus"
                     dataName="In Stock"
-                    value={stockStatus === "inStock"}
-                    onChange={handleInStock}
+                    value={stockStatus === "In Stock"}
+                    check={stockStatus === "In Stock"}
+                    onChange={radioInStockChange}
                   />
                 </div>
                 <div className="inventory-form__radio-group">
                   <RadioButton
                     label="Out of stock"
-                    name="inStock"
+                    name="stockStatus"
                     dataName="Out of Stock"
-                    value={stockStatus === "outOfStock"}
-                    onChange={handleOutOfStock}
+                    value={stockStatus === "Out of Stock"}
+                    check={stockStatus === "Out of Stock"}
+                    onChange={radioOutOfStockChange}
                   />
                 </div>
               </div>
             </div>
-            { stockStatus === "inStock" ? 
+            { stockStatus === "In Stock" ? 
             <div className="inventory-form__quantity">
               <NumberField
                 id="quantityField"
@@ -133,7 +135,7 @@ const NewInventory = () => {
         </div>
         <div className="inventory-form__bottom-section">
           <div className="inventory-form__buttons">
-            <button className="inventory-form__button">Cancel</button>
+          <Link to="/inventory" className="inventory-form__link">Cancel</Link>
             <button className="inventory-form__button inventory-form__button--submit">
               + Add Item
             </button>

@@ -136,6 +136,7 @@ const EditInventory = () => {
                 </div>
               </div>
             </div>
+            { stockStatus === "In Stock" ? 
             <div className="inventory-form__quantity">
               <NumberField
               value={inventoryData.quantity}
@@ -144,14 +145,21 @@ const EditInventory = () => {
                 inputName="quantity"
                 valid={valid}
               />
-            </div>
+            </div> : <div className="inventory-form__quantity--hidden">
+              <NumberField
+                id="quantityField"
+                label="Quantity"
+                inputName="quantity"
+                valid={valid}
+                value="0" /> 
+                </div> }
             <WarehouseSelectField value={inventoryData.warehouse_id}
               setValue={setInventoryData}inputName="warehouse" valid={valid} />
           </div>
         </div>
         <div className="inventory-form__bottom-section">
           <div className="inventory-form__buttons">
-            <button className="inventory-form__button">Cancel</button>
+          <Link to="/inventory" className="inventory-form__link">Cancel</Link>
             <button className="inventory-form__button inventory-form__button--submit">
               Save
             </button>

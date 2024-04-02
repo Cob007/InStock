@@ -7,6 +7,7 @@ const NumberField = (props) => {
 
   const changeCounter = (event) => {
     setChange(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (

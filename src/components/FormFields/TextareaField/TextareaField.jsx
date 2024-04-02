@@ -7,6 +7,7 @@ const TextareaField = ({ inputName, valid, label, value, setValue }) => {
 
   const changeTextarea = (event) => {
     setTextarea(event.target.value);
+    setValue(event.target.value)
   };
 
   return (

@@ -14,6 +14,7 @@ const ItemCategorySelectField = (props) => {
   const [itemCategory, setitemCategory] = useState("");
   const handleSelectChange = (event) => {
     setitemCategory(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (

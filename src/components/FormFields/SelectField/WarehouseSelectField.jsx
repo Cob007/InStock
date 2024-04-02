@@ -16,6 +16,7 @@ const WarehouseSelectField = (props) => {
   const [warehouse, setWarehouse] = useState("");
   const handleSelectChange = (event) => {
     setWarehouse(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (

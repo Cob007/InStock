@@ -2,11 +2,12 @@ import "./TextareaField.scss";
 import { useEffect, useState } from "react";
 import error from "../../../assets/Icons/error-24px.svg";
 
-const TextareaField = ({ inputName, valid, label }) => {
+const TextareaField = ({ inputName, valid, label, value, setValue }) => {
   const [textarea, setTextarea] = useState("");
 
   const changeTextarea = (event) => {
     setTextarea(event.target.value);
+    setValue(event.target.value)
   };
 
   return (
@@ -19,6 +20,7 @@ const TextareaField = ({ inputName, valid, label }) => {
           <div>
             <textarea
               required
+              value={value}
               className="form__field-textarea"
               placeholder="Please enter a brief item description..."
               type="text"
@@ -31,6 +33,7 @@ const TextareaField = ({ inputName, valid, label }) => {
           </div>
         ) : (
           <textarea
+          value={value}
             onChange={changeTextarea}
             className="form__field-textarea"
             placeholder="Please enter a brief item description..."

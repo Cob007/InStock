@@ -7,6 +7,7 @@ const NumberField = (props) => {
 
   const changeCounter = (event) => {
     setChange(event.target.value);
+    props.setValue(event.target.value)
   };
 
   return (
@@ -18,11 +19,13 @@ const NumberField = (props) => {
         {change === "" && props.valid === false ? (
           <div>
             <input
+            value={props.value}
               required
               className="form__field-number-input"
               placeholder="0"
               type="number"
               name={props.inputName}
+              value={props.value}
             />
             <div className="form__error-div">
               <img className="form__error-icon" src={error} alt="error icon" />
@@ -31,12 +34,14 @@ const NumberField = (props) => {
           </div>
         ) : (
           <input
+          value={props.value}
             onChange={changeCounter}
             className="form__field-number-input"
             placeholder="0"
             type="number"
             name={props.inputName}
-          />
+            value={props.value}
+          /> 
         )}
       </div>
     </div>

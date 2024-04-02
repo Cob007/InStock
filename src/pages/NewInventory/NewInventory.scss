@@ -93,6 +93,10 @@
 
     &__quantity {
         margin-top: 16px;
+
+        &--hidden {
+            display: none;
+        }
     }
 
     &__buttons {
@@ -116,6 +120,20 @@
             border: 1px solid $Instock-Indigo;
             color: #FFFF;
         }
+    }
+
+    &__link {
+            display: flex;    
+            @include labels-links-buttons;
+            height: 36px;
+            width: 100%;
+            border: 1px solid $Cloud;
+            border-radius: 20px;
+            background-color: #FFFF;
+            color: $Slate;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
     }
 
     @media (min-width: 768px) {
@@ -155,6 +173,12 @@
             justify-content: flex-end;
             padding: 16px 32px;
             gap: 12px;
+        }
+
+        &__link {
+            height: 38px;
+            width: unset;
+            padding: 0 16px;
         }
 
         &__button {

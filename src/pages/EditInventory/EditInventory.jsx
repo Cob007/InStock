@@ -52,14 +52,14 @@ const EditInventory = () => {
         `http://localhost:8080/inventories/${inventoryId}`
       );
       setInventoryData(response.data);
-      /* setStockStatus(inventoryData.status) */
+      setStockStatus(response.data.status)
+      console.log(response.data.status)
+      console.log(stockStatus)
     } catch (error) {
       console.log(error);
     }
   };
 
- /*  setStockStatus(inventoryData.status)
-  console.log(stockStatus) */
 
   useEffect(() => {
     getInventoryData();
@@ -119,6 +119,7 @@ const EditInventory = () => {
                     name="stockStatus"
                     dataName="In Stock"
                     value={stockStatus === inventoryData.status}
+                    check={stockStatus === "In Stock" ? true : false}
                     onChange={radioInStockChange}
                     setValue={setInventoryData}
                   />
@@ -129,6 +130,7 @@ const EditInventory = () => {
                     name="stockStatus"
                     dataName="Out of Stock"
                     value={stockStatus === inventoryData.status}
+                    check={stockStatus === "Out of Stock" ? true : false}
                     onChange={radioOutOfStockChange}
                     setValue={setInventoryData}
                   />

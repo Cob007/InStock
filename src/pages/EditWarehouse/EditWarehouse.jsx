@@ -67,8 +67,6 @@ const EditWarehouse = () => {
         `http://localhost:8080/warehouses/${getId}`
       );
       setWarehouseData(response.data);
-      console.log(warehouseData)
-      console.log(warehouseData.warehouse_name)
     } catch (error) {
       console.log(error);
     }

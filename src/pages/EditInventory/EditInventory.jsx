@@ -6,14 +6,14 @@ import NumberField from "../../components/FormFields/NumberField/NumberField";
 import TextareaField from "../../components/FormFields/TextareaField/TextareaField";
 import RadioButton from "../../components/FormFields/RadioButton/RadioButton";
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EditInventory = () => {
+  const navigate = useNavigate();
+
   let itemId = useParams();
   let inventoryId = itemId.itemID;
-  console.log(itemId);
-  console.log(inventoryId);
 
   const [valid, setValid] = useState(true);
   const [inventoryData, setInventoryData] = useState(null);
@@ -31,7 +31,7 @@ const EditInventory = () => {
     setValid(false);
 
     try {
-      await axios.patch(`http://localhost:8080/inventories/${inventoryId}`, {
+      await axios.put(`http://localhost:8080/inventories/${inventoryId}`, {
         warehouse_id: event.target.warehouse.value,
         item_name: event.target.itemName.value,
         description: event.target.itemDescription.value,
@@ -39,8 +39,9 @@ const EditInventory = () => {
         status: event.target.stockStatus.value,
         quantity: event.target.quantity.value,
       });
+      console.log(onSubmit)
       alert("Edit Successful");
-        navigate("/inventory");
+      navigate("/inventory");
     } catch (error) {
       console.log(error);
     }
@@ -60,14 +61,9 @@ const EditInventory = () => {
     }
   };
 
-
   useEffect(() => {
     getInventoryData();
-  }, [inventoryId]);
-
-
-  if (!inventoryData) return ""; //ensure pages waits until there is a mainVideo from the api call before it renders
-
+  }, []);
 
   return (
     <main className="new-inventory">
@@ -81,6 +77,9 @@ const EditInventory = () => {
         </Link>
         <h3 className="new-inventory__header">Edit Inventory Item</h3>
       </section>
+      {inventoryData === null ? (
+        <p>Loading...</p>
+      ) : (
       <form className="inventory-form" noValidate onSubmit={onSubmit}>
         <div className="inventory-form__top-section">
           <div className="inventory-form__section-one">
@@ -154,11 +153,11 @@ const EditInventory = () => {
           <div className="inventory-form__buttons">
             <button className="inventory-form__button">Cancel</button>
             <button className="inventory-form__button inventory-form__button--submit">
-              + Add Item
+              Save
             </button>
           </div>
         </div>
-      </form>
+      </form> )}
     </main>
   );
 };

@@ -9,7 +9,7 @@ const WarehousePage = () => {
   const [warehouseData, setWarehouseData] = useState([]);
 
   const fetchWarehouseData = async () =>{
-    const response = await axios.get('http://localhost:8020/warehouses')
+    const response = await axios.get('http://localhost:8080/warehouses')
     setWarehouseData(response.data)
   }
   useEffect(()=>{

@@ -23,6 +23,7 @@ const NumberField = (props) => {
               placeholder="0"
               type="number"
               name={props.inputName}
+              value={props.value}
             />
             <div className="form__error-div">
               <img className="form__error-icon" src={error} alt="error icon" />
@@ -36,7 +37,8 @@ const NumberField = (props) => {
             placeholder="0"
             type="number"
             name={props.inputName}
-          />
+            value={props.value}
+          /> 
         )}
       </div>
     </div>

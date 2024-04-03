@@ -1,0 +1,36 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+.search{
+    display: flex;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid gray;
+    padding: 8px;
+    margin: 8px 0;
+
+    @include tablet {
+        width: 60%;
+        height: 25px;
+        margin: 8px 16px;
+
+    }
+
+    &__input {
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        margin: 0 10px;
+        @include titillium-web-regular;
+    }
+
+    &__input:focus {
+        outline: none;
+    }
+
+    &__icon {
+        justify-content: center;
+        margin-right: 10px;
+    }
+}

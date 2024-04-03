@@ -6,8 +6,10 @@ import './individualWarehouseComponent.scss'
 import axios from 'axios'
 import sort from '../../../assets/Icons/sort-24px.svg'
 import Modal from '../../modal/Modal'
+import { Link } from "react-router-dom";
 
-const SearchbarComponent = ({ warehouse, address, contactName, email, phoneNumber, warehouseID, setWarehouseData }) => {
+
+const SearchbarComponent = ({ handleWarehouseInventory, warehouse, address, contactName, email, phoneNumber, warehouseID, setWarehouseData }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,17 +17,17 @@ const SearchbarComponent = ({ warehouse, address, contactName, email, phoneNumbe
     setIsModalOpen(!isModalOpen);
   };
 
-  // const handleWarehouseDelete = async () => {
-  //   try {
-  //     await axios.delete(`http://localhost:8080/warehouses/${warehouseId}`);
-  //     const response = await axios.get('http://localhost:8080/warehouses');
-  //     const updatedData = response.data;
-  //     setWarehouseData(updatedData);
-  //     toggleModal();
-  //   } catch (error) {
-  //     console.error("Error deleting warehouse:", error);
-  //   }
-  // };
+  const handleWarehouseDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/warehouses/${warehouseID}`);
+      const response = await axios.get('http://localhost:8080/warehouses');
+      const updatedData = response.data;
+      setWarehouseData(updatedData);
+      toggleModal();
+    } catch (error) {
+      console.error("Error deleting warehouse:", error);
+    }
+  };
 
 
 
@@ -36,10 +38,14 @@ const SearchbarComponent = ({ warehouse, address, contactName, email, phoneNumbe
           <div className='category warehouse'>
             <p className='individual__title'>WAREHOUSE</p>
             <div className="warehouseWchevron">
-              <a href={`warehouse?ID=${warehouseID}`} className='individual__content'>
+              <div
+                onClick={() => {
+                  handleWarehouseInventory(warehouseID)
+                }}
+                className='individual__content'>
                 {warehouse}
                 <img className='chevronRight' src={chevronRight} />
-              </a>
+              </div>
             </div>
           </div>
           <div className='category contactName'>
@@ -60,19 +66,19 @@ const SearchbarComponent = ({ warehouse, address, contactName, email, phoneNumbe
             </div>
           </div>
           <div className="category actions">
-            <button onClick={toggleModal} className='delete'>
+            <Link onClick={toggleModal} className='delete'>
               <img src={deleteIcon} alt='delete' />
-            </button>
-            <a href={`warehouse/${warehouseID}/edit`} className='edit'><img src={editIcon} /></a>
+            </Link>
+            <Link to={`${warehouseID}/edit`} className='edit'><img src={editIcon} /></Link>
           </div>
+
+        </div>
+
+        <div>
+          <Modal isOpen={isModalOpen} toggleModal={toggleModal} warehouseName={warehouse} warehouseId={warehouseID} setWarehouseData={setWarehouseData} handleDelete={handleWarehouseDelete} />
         </div>
 
       </div>
-
-      <div>
-        <Modal isOpen={isModalOpen} toggleModal={toggleModal} warehouseName={warehouse} warehouseId={warehouseID} setWarehouseData={setWarehouseData} />
-      </div>
-
     </div>
   );
 };

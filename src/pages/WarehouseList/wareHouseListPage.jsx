@@ -4,9 +4,18 @@ import IndividualWarehouse from "../../components/warehouse/warehouseList/indivi
 import SortBar from "../../components/warehouse/warehouseList/sortBar"
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const WarehousePage = () => {
   const [warehouseData, setWarehouseData] = useState([]);
+
+  const navigate = useNavigate()
+
+
+  const handleWarehouseInventory = (warehouseId) => {
+    console.log(warehouseId)
+    navigate(`/warehouse/${warehouseId}`)
+  }
 
   const fetchWarehouseData = async () => {
     const response = await axios.get('http://localhost:8080/warehouses')
@@ -21,7 +30,7 @@ const WarehousePage = () => {
       <SortBar />
       {warehouseData.map((warehouse => (
         <IndividualWarehouse
-          key={warehouse.id}
+          handleWarehouseInventory={handleWarehouseInventory} key={warehouse.id}
           warehouse={warehouse.warehouse_name}
           address={warehouse.address}
           contactName={warehouse.contact_name}
@@ -31,7 +40,6 @@ const WarehousePage = () => {
           setWarehouseData={setWarehouseData}
         />
       )))
-
       }
     </main>
   );

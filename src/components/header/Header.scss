@@ -1,10 +1,9 @@
-@use '../../partials/globals' as *;
-@use '../../partials/mixins' as *;
-@use '../../partials/variables' as *;
+@use "../../partials/globals" as *;
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
 
 .header {
   background-color: $Graphite;
-  
 
   &__content {
     padding: 16px;
@@ -13,13 +12,13 @@
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-  
+
     @include tablet {
       flex-direction: row;
       padding: 16px 32px;
       align-items: center;
     }
-  
+
     @include desktop {
       width: 1020px;
       flex-direction: row;
@@ -35,7 +34,7 @@
     box-sizing: border-box;
 
     @include tablet {
-      justify-content: flex-end
+      justify-content: flex-end;
     }
   }
 
@@ -70,9 +69,13 @@
     }
   }
 
-  &__links a:active {
-    background-color: $Instock-Black;
-    color: white;
-  }
+  // &__links a:active {
+  //   background-color: $Instock-Black;
+  //   color: white;
+  // }
 }
 
+.active {
+  background-color: $Instock-Black;
+  color: white;
+}

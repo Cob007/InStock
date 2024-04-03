@@ -1,0 +1,82 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+
+.cont {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgba(19, 24, 44, 0.1);
+
+    @include tablet {
+        margin: 0 36px;
+    }
+
+    @include desktop {
+        width: 1020px;
+        margin: auto;
+    }
+
+
+    &__table-def { 
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            background-color: $Light-Grey ;
+            padding: 12px;
+        }
+    }
+
+    &__rows {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 20%
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 30%
+    }
+
+    &__qty {
+        width: 15%;
+    }
+
+    &__action {
+        width: 15%;
+        justify-content: center
+    }
+
+
+    &__rows-name {
+        @include titillium-web-regular;
+        color: $Slate;
+    }
+
+    &__rows-inven {
+        @include titillium-web-regular;
+        margin-left: 25px;
+        color: $Slate;
+    }
+
+    &__rows-icon {
+       width: 20px;
+    }
+
+
+
+    &__divider {
+        width: 100%;
+        height: 1px;
+        background-color: $Cloud;
+    }
+}

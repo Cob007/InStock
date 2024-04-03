@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const NewWarehouse = () => {
   const [valid, setValid] = useState(true);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -25,16 +25,16 @@ const NewWarehouse = () => {
       event.target.phoneNumber.value === "" ||
       event.target.email.value === ""
     ) {
-      console.log("Error")
+      console.log("Error");
     } else {
-      const warehouse_name = event.target.warehouseName.value
-      const address = event.target.streetAddress.value
-      const city = event.target.city.value
-      const country = event.target.country.value
-      const contact_name = event.target.contactName.value 
-      const contact_position = event.target.position.value 
-      const contact_phone = event.target.phoneNumber.value 
-      const contact_email = event.target.email.value 
+      const warehouse_name = event.target.warehouseName.value;
+      const address = event.target.streetAddress.value;
+      const city = event.target.city.value;
+      const country = event.target.country.value;
+      const contact_name = event.target.contactName.value;
+      const contact_position = event.target.position.value;
+      const contact_phone = event.target.phoneNumber.value;
+      const contact_email = event.target.email.value;
 
       try {
         await axios.post("http://localhost:8080/warehouses", {
@@ -45,7 +45,7 @@ const NewWarehouse = () => {
           contact_name: contact_name,
           contact_position: contact_position,
           contact_phone: contact_phone,
-          contact_email: contact_email
+          contact_email: contact_email,
         });
         alert("Upload Successful");
         navigate("/warehouse");
@@ -55,16 +55,16 @@ const NewWarehouse = () => {
     }
   };
 
-
-
   return (
     <main className="new-warehouse">
       <section className="new-warehouse__header-div">
-        <img
-          className="new-warehouse__back-arrow"
-          src={ArrowBack}
-          alt="Arrow Back"
-        />
+        <Link to="/warehouse">
+          <img
+            className="new-warehouse__back-arrow"
+            src={ArrowBack}
+            alt="Arrow Back"
+          />
+        </Link>
         <h1 className="new-warehouse__header">Add New Warehouse</h1>
       </section>
       <div className="new-warehouse__divider"></div>

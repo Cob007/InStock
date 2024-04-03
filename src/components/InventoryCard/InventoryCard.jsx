@@ -6,7 +6,7 @@ import { useState } from "react";
 const InventoryCard = (props) => {
 
 
-  const { inventory } = props;
+  const { inventory, handleEditInventory, handleDeleteInventory } = props;
   const [styleStock, setStyleStock] = 
   useState(inventory?.quantity>0?"card__instock":"card__nostock");
 
@@ -46,11 +46,15 @@ const InventoryCard = (props) => {
       </div>
       <section className="card__icons-section">
         <img
+            onClick={()=>handleDeleteInventory(inventory?.id)}
           className="card__icon"
           src={DeleteIcon}
           alt="Delete Inventory icon"
         />
-        <img className="card__icon" src={EditIcon} alt="Edit Inventory icon" />
+        <img
+            onClick={()=>handleEditInventory(inventory?.id)}
+         className="card__icon"
+         src={EditIcon} alt="Edit Inventory icon" />
       </section>
     </div>
   );

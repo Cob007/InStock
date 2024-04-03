@@ -58,7 +58,6 @@
         }
         @include desktop{
             width: 162px;
-            
         }
     }
     &__button{
@@ -66,6 +65,7 @@
             display: flex;
             justify-content: center;
         }
+
         text-decoration: none;
         margin: 0 40px;
         padding: 0;
@@ -78,6 +78,9 @@
         border:0;
         border-radius: 30px;
         width: auto;
+        @include tablet{
+            width: 100px;
+        }
     }
     @include desktop{
         display: flex;
@@ -89,10 +92,23 @@
     .notLogo{
         display: flex;
         flex-direction: column;
+        max-width: 100%;
+        .actionPanel__button{
+            max-width: 100%;
+        }
         @include tablet{
             align-items: center;
             flex-direction: row;
+            .actionPanel__button{
+                width: 180px;
+            }
         }
+        @include desktop{
+            .actionPanel__button{
+                max-width: 200px;
+            }
+        }
+
     }
 }
 .searchIcon{

@@ -1,8 +1,12 @@
 import './AddButton.scss'
-const AddButton = () => {
+const AddButton = (props) => {
+
+    const { handleClickAddButton } = props
 
     return (
-        <div className='addbtn'>
+        <div className='addbtn'
+            onClick={handleClickAddButton}
+        >
             <p className='addbtn__text'>+ Add Item</p>
         </div>
     )

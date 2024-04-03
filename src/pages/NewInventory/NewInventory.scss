@@ -1,0 +1,204 @@
+@use '../../partials/globals' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+
+.new-inventory {
+    background-color: white;
+    border-radius: 3px;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgba(19, 24, 44, 0.1);
+
+    &__header-div {
+        display: flex;
+        padding: 0 16px;
+    }
+
+    &__back-arrow {
+        margin-top: 50px;
+    }
+
+    &__header {
+        margin: 32px 0 24px 16px;
+        @include page-header;
+    }
+
+    @media (min-width: 768px) {
+        margin: 0 36px;
+
+        &__header-div {
+            padding: 0 32px;
+        }
+
+        &__back-arrow {
+            margin-top: 40px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        width: 1020px;
+        margin: auto;
+    }
+
+}
+
+.inventory-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+
+    &__section-one {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        border-top: 1px solid $Cloud;
+    }
+
+    &__section-two {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        border-top: 1px solid $Cloud;
+    }
+
+    &__section-header {
+        @include subheader;
+        margin: 0 0 16px 0;
+    }
+
+    &__radio-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__radio-header {
+        @include labels-links-buttons;
+        margin:  0 0 4px 0;
+    }
+
+    &__radio-selections {
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+
+    &__radio-group {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__quantity {
+        margin-top: 16px;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        padding: 8px 16px;
+        background-color: $Light-Grey;
+        gap: 8px;
+    }
+
+    &__button {
+        @include labels-links-buttons;
+        height: 36px;
+        width: 100%;
+        border: 1px solid $Cloud;
+        border-radius: 20px;
+        background-color: #FFFF;
+        color: $Slate;
+
+        &--submit {
+            background-color: $Instock-Indigo;
+            border: 1px solid $Instock-Indigo;
+            color: #FFFF;
+        }
+    }
+
+    &__link {
+            display: flex;    
+            @include labels-links-buttons;
+            height: 36px;
+            width: 100%;
+            border: 1px solid $Cloud;
+            border-radius: 20px;
+            background-color: #FFFF;
+            color: $Slate;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
+    }
+
+    @media (min-width: 768px) {
+
+        &__top-section {
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid $Cloud;
+            margin-bottom: 24px;
+        }
+
+        &__section-one {
+            width: 100%;
+            padding: 0 24px 0 36px;
+            margin-top: 24px;
+            border-right: 1px solid $Cloud;
+            border-top: unset;
+        }
+
+        &__section-two {
+            width: 100%;
+            margin-top: 24px;
+            padding: 0 36px 0 24px;
+            border-top: unset;
+        }
+
+        &__section-header {
+            margin: 0 0 24px 0;
+            border-top: none;
+        }
+
+        &__radio-header {
+            margin: 0;
+        }
+
+        &__buttons {
+            justify-content: flex-end;
+            padding: 16px 32px;
+            gap: 12px;
+        }
+
+        &__link {
+            height: 38px;
+            width: unset;
+            padding: 0 16px;
+        }
+
+        &__button {
+            height: 38px;
+            width: unset;
+            padding: 0 16px;
+
+            &--submit {
+                padding: 0 16px;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        &__buttons {
+            margin-top: 24px;
+        }
+
+        &__section-one {
+            padding: 0 24px 16px 36px;
+        }
+    }
+}

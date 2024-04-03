@@ -1,10 +1,15 @@
-import SampleComponent from "../../components/SampleComponent/SampleComponent";
+import Modal from "../../components/modal/Modal";
+import "./SamplePage.scss"
 
 const SamplePage = () => {
   return (
     <main>
-      <SampleComponent />
       <p>Welcome</p>
+
+      <div>
+        <Modal />
+      </div>
+
     </main>
   );
 };

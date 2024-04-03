@@ -1,0 +1,204 @@
+@import "../../partials/mixins";
+@import "../../partials/variables";
+
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.modal {
+    background-color: white;
+}
+
+.overlay {
+    background: rgba(36, 44, 64, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 0;
+    line-height: 1.4;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // position: relative;
+
+    &__title {
+        @include page-header;
+        margin-top: 3.75rem;
+        height: 4.5rem;
+        width: 21.438rem;
+        padding: 0rem 1rem;
+
+    }
+
+    &__prompt {
+        height: 4.875rem;
+        width: 21.438rem;
+        padding: 0rem 1rem;
+    }
+}
+
+.buttons {
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    z-index: 1;
+
+    &__cancel {
+        width: 40%;
+        height: 2.25rem;
+        border-radius: 1.25rem;
+        background-color: white;
+        color: $Slate;
+        border-color: $Cloud;
+        border-style: solid;
+
+        &:hover {
+            color: $Instock-Indigo;
+            border-color: $Instock-Indigo;
+        }
+    }
+
+    &__delete {
+        width: 40%;
+        height: 2.25rem;
+        color: white;
+        border-radius: 1.25rem;
+        background-color: $Red;
+        border: none;
+
+        &:hover {
+            background-color: $Graphite;
+        }
+    }
+
+}
+
+.closeButton {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+@include tablet {
+
+    .modal-content {
+        position: absolute;
+        left: 50%;
+        top: 22%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4;
+        background-color: white;
+        width: 90vw;
+        height: 25vh;
+        border-radius: 0.25rem;
+
+
+        &__title {
+            @include page-header;
+            margin-top: 3.75rem;
+            height: 2.5rem;
+            width: 35.125rem;
+            padding: 0rem 4rem;
+        }
+
+        &__prompt {
+            height: 3.5rem;
+            width: 34rem;
+            padding: 0rem 4rem;
+        }
+    }
+
+    .buttons {
+
+        display: flex;
+        justify-content: flex-end;
+        background-color: white;
+        z-index: 0;
+        margin: 0rem 0rem;
+        padding: 0rem 2rem;
+        border-radius: 0.25rem;
+        padding-bottom: 1.5rem;
+
+        &__cancel {
+            width: 10%;
+            height: 2.375rem;
+            border-radius: 1.25rem;
+        }
+
+        &__delete {
+            width: 10%;
+            height: 2.375rem;
+            border-radius: 1.25rem;
+            background-color: $Red;
+            margin-left: 1rem;
+            margin-right: 2rem;
+        }
+
+    }
+}
+
+@include desktop {
+
+    .modal {
+        background-color: white;
+    }
+
+
+    .modal-content {
+        position: absolute;
+        left: 50%;
+        top: 22%;
+        transform: translate(-50%, -50%);
+        line-height: 1.4;
+        background-color: white;
+        width: 60vw;
+        height: 25vh;
+        margin: auto;
+
+
+        &__title {
+            @include page-header;
+            margin-top: 3.75rem;
+            height: 2.5rem;
+        }
+
+        &__prompt {
+            height: 3.5rem;
+            width: 34rem;
+        }
+    }
+
+    .buttons {
+        padding-bottom: 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+        background-color: white;
+
+        &__cancel {
+            width: 10%;
+            height: 2.375rem;
+            border-radius: 1.25rem;
+        }
+
+        &__delete {
+            width: 10%;
+            height: 2.375rem;
+            border-radius: 1.25rem;
+            background-color: $Red;
+            margin-left: 1rem;
+        }
+
+    }
+}

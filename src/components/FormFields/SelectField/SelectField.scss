@@ -1,0 +1,81 @@
+@use '../../../partials/globals' as *;
+@use '../../../partials/mixins' as *;
+@use '../../../partials/variables' as *;
+
+
+.form {
+
+    &__selector-field-div {
+        display: flex;
+        flex-direction: column;
+        margin: 16px 0 0 0;
+    }
+
+    &__selector-field-label {
+        @include labels-links-buttons;
+        margin: 0 0 4px 0;
+    }
+
+    &__selector-field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__selector-field-dropdown {
+        border: 1px solid $Cloud;
+        border-radius: 20px;
+        height: 36px;
+        @include body-medium;
+        padding: 0 16px;
+        -webkit-appearance: none;
+        background-image: url('../../../assets/Icons/arrow_drop_down-24px.svg');
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 1rem;
+        color: $Slate;
+
+        &:focus {
+            border-color: $Instock-Indigo;
+            outline: none;
+            color: $Instock-Black;
+        }
+
+        &:invalid {
+            border-color: red;
+            outline: none;
+        }
+    }
+
+    &__selector-field-error {
+        margin-left: 16px;
+    }
+
+    &__error-div-dropdown {
+        display: flex;
+    }
+
+    &__error-icon {
+        width: 16px;
+        margin-right: 4px;
+    }
+
+    &__error-message {
+        color: $Red;
+        @include body-small
+    }
+
+    @media (min-width: 768px) {
+
+        &__selector-field-div {
+            margin-top: 24px;
+        }
+
+        &__selector-field-label {
+            margin: 0 0 4px 0;
+        }
+    
+        &__selector-field-dropdown {
+            margin: 0;
+        }
+    }
+}

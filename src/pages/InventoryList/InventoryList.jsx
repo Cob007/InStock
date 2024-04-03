@@ -30,6 +30,12 @@ const InventoryList = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const handleDeleteInventory = (inventoryId) => {
+  };
+
+  const handleInventoryClicked = (inventoryId) => {
+    navigate(`/inventory/${inventoryId}`);
+  };
 
   const [inventoryList, setInventoryList] = useState([]);
 
@@ -124,6 +130,7 @@ const InventoryList = () => {
           <InventoryCard inventory={inventory}
             handleEditInventory={handleEditInventory}
             toggleModal={toggleModal}
+            handleInventoryClicked={handleInventoryClicked}
           />
         </div>
       ))}

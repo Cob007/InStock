@@ -7,7 +7,7 @@ const AddButton = (props) => {
         <div className='addbtn'
             onClick={handleClickAddButton}
         >
-            <p className='addbtn__text'>+ Add Item</p>
+            <p className='addbtn__text'>+ Add New Item</p>
         </div>
     )
 }

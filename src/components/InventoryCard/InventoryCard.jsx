@@ -4,13 +4,14 @@ import DeleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/Icons/edit-24px.svg";
 import { useState } from "react";
 const InventoryCard = (props) => {
+
   const {
     inventory,
     handleEditInventory,
-    handleDeleteInventory,
+    toggleModal,
     handleInventoryClicked,
   } = props;
-  
+
 
   return (
     <div className="card">
@@ -32,7 +33,7 @@ const InventoryCard = (props) => {
           <div className="card__element-status">
             <h3 className="card__label">Status</h3>
             <p className={`card__text ${inventory?.quantity > 0 ? "card__instock" : "card__nostock"}`}>{inventory?.status}</p>
-          </div>
+       </div>
           <div className="card__element-qty">
             <h3 className="card__label">Qty</h3>
             <p className="card__text">{inventory?.quantity}</p>
@@ -45,7 +46,7 @@ const InventoryCard = (props) => {
       </div>
       <section className="card__icons-section">
         <img
-          onClick={() => handleDeleteInventory(inventory?.id)}
+          onClick={() => toggleModal(inventory?.id, inventory?.item_name)}
           className="card__icon"
           src={DeleteIcon}
           alt="Delete Inventory icon"

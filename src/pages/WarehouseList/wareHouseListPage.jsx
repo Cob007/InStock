@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 const WarehousePage = () => {
   const [warehouseData, setWarehouseData] = useState([]);
 
-  const  navigate  = useNavigate()
+  const navigate = useNavigate()
 
 
   const handleWarehouseInventory = (warehouseId) => {
@@ -17,20 +17,28 @@ const WarehousePage = () => {
     navigate(`/warehouse/${warehouseId}`)
   }
 
-  const fetchWarehouseData = async () =>{
+  const fetchWarehouseData = async () => {
     const response = await axios.get('http://localhost:8080/warehouses')
     setWarehouseData(response.data)
   }
-  
-  useEffect(()=>{
+  useEffect(() => {
     fetchWarehouseData()
-  },[])
+  }, [])
   return (
     <main>
       <TitleBar />
-      <SortBar/>
-      {warehouseData.map((warehouse=>(
-        <IndividualWarehouse handleWarehouseInventory={handleWarehouseInventory} key={warehouse.id} warehouse={warehouse.warehouse_name} address={warehouse.address} contactName={warehouse.contact_name} phoneNumber={warehouse.contact_phone} email={warehouse.contact_email} warehouseID={warehouse.id}/>
+      <SortBar />
+      {warehouseData.map((warehouse => (
+        <IndividualWarehouse
+          handleWarehouseInventory={handleWarehouseInventory} key={warehouse.id}
+          warehouse={warehouse.warehouse_name}
+          address={warehouse.address}
+          contactName={warehouse.contact_name}
+          phoneNumber={warehouse.contact_phone}
+          email={warehouse.contact_email}
+          warehouseID={warehouse.id}
+          setWarehouseData={setWarehouseData}
+        />
       )))
       }
     </main>

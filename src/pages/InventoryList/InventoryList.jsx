@@ -5,7 +5,10 @@ import SortIcon from "../../assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
 import axios from "axios";
+import Modal from "../../components/modal/Modal";
 import { useNavigate } from "react-router-dom";
+
+
 const InventoryList = () => {
   const navigate = useNavigate();
 
@@ -15,6 +18,16 @@ const InventoryList = () => {
 
   const handleEditInventory = (inventoryId) => {
     navigate(`/inventory/${inventoryId}/edit`);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState(null);
+  const [selectedItemName, setSelectedItemName] = useState('');
+
+  const toggleModal = (inventoryId, inventoryName) => {
+    setSelectedItemId(inventoryId)
+    setSelectedItemName(inventoryName)
+    setIsModalOpen(!isModalOpen);
   };
 
   const handleDeleteInventory = (inventoryId) => {
@@ -38,6 +51,19 @@ const InventoryList = () => {
   useEffect(() => {
     loadRemoteInventory();
   }, []);
+
+
+  const handleDeleteInventory = async (inventoryId) => {
+    try {
+      await axios.delete(`http://localhost:8080/inventories/${selectedItemId}`);
+      const response = await axios.get('http://localhost:8080/inventories');
+      const updatedData = response.data;
+      setInventoryList(updatedData);
+      toggleModal();
+    } catch (error) {
+      console.error("Error deleting inventory item:", error);
+    }
+  };
 
   return (
     <main className="cont">
@@ -101,14 +127,18 @@ const InventoryList = () => {
       {inventoryList.map((inventory, index) => (
         <div key={index}>
           <div className="cont__divider" />
-          <InventoryCard
-            inventory={inventory}
+          <InventoryCard inventory={inventory}
             handleEditInventory={handleEditInventory}
-            handleDeleteInventory={handleDeleteInventory}
+            toggleModal={toggleModal}
             handleInventoryClicked={handleInventoryClicked}
           />
         </div>
       ))}
+
+      <div>
+        <Modal isOpen={isModalOpen} toggleModal={toggleModal} inventoryName={selectedItemName} handleDelete={handleDeleteInventory} />
+      </div>
+
     </main>
   );
 };

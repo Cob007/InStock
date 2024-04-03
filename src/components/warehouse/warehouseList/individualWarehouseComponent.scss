@@ -1,191 +1,237 @@
 @import '../../../partials/_variables.scss';
-@import '../../../partials/mixins.scss'; 
+@import '../../../partials/mixins.scss';
 
 
 
-.warehouseList{
-    background-color:white;
+.warehouseList {
+    background-color: white;
     @include body-medium;
     display: flex;
+
     // ! Mobile
     @media (max-width: 767px) {
         margin-left: 16px;
         border-top: $Cloud 1px solid;
         width: calc(100vw - 32px);
+
         // !mobile
-        img{
-            height:24px
+        img {
+            height: 24px
         }
-        &__individual{
-            
+
+        &__individual {
+
             @include body-small;
-            .individual{
-                &__title{
+
+            .individual {
+                &__title {
                     color: $Slate
                 }
             }
+
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             padding:0 40px;
-            .actions{
+
+            .actions {
 
                 padding-bottom: 16px;
             }
-            .category{
+
+            .category {
                 padding-top: 16px;
                 width: calc(30vw);
             }
         }
-        
+
     }
-    @include tablet{
+
+    @include tablet {
         display: flex;
         flex-direction: column;
-        &__individual{
+
+        &__individual {
             background-color: white;
             padding: 16px 26px;
             width: calc(100vw - 116px);
             display: flex;
             justify-content: space-between;
-            .individual__content{
+
+            .individual__content {
                 align-items: center;
                 padding: 0;
                 margin: 0;
             }
         }
     }
-    .warehouse{
-        .individual__content{
+
+    .warehouse {
+        .individual__content {
             display: flex;
             text-decoration: none;
-            &:hover{
+
+            &:hover {
                 text-decoration: underline;
             }
+
             color: $Instock-Indigo;
             align-self: center;
             @include labels-links-buttons;
         }
     }
-    &__individual{
-        &:hover{
+
+    &__individual {
+        &:hover {
             background-color: rgba(46, 102, 229, .07);
         }
-        .category{
-            .warehouseWchevron{
+
+        .category {
+            .warehouseWchevron {
                 display: flex;
+
                 @media (max-width: 767px) {
-                    img{
+                    img {
                         align-self: center;
                         height: 16px;
                     }
                 }
             }
-            @include tablet{
+
+            @include tablet {
                 display: flex;
                 flex-direction: row;
-                .individual__title{
+
+                .individual__title {
                     display: none;
                 }
             }
-            .individual__content{
+
+            .individual__content {
                 max-width: 20vw;
-                &:nth-child(1){
-                    @include tablet{
-                        width:120px;
+
+                &:nth-child(1) {
+                    @include tablet {
+                        width: 120px;
                     }
                 }
             }
         }
     }
+
     // ! Labels (notMobile)
-    &__label{
+    &__label {
         margin: 0 auto;
         color: $Slate;
         width: 100%;
         justify-content: space-between;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+
         @media (max-width: 767px) {
             display: none;
         }
-        @include tablet{
+
+        @include tablet {
             width: calc(100vw - 144px);
         }
-        .categories{
+
+        .categories {
             @include body-small;
             align-items: center;
-            .sort{
-                height:18px;
+
+            .sort {
+                height: 18px;
                 padding-top: 5px;
             }
-            @include tablet{
+
+            @include tablet {
                 align-items: center;
                 display: flex;
-                padding:12px 0;
+                padding: 12px 0;
             }
         }
-        :nth-child(3){
-            @include tablet{
+
+        :nth-child(3) {
+            @include tablet {
                 margin-left: 60px;
             }
-            @include desktop{
+
+            @include desktop {
                 margin-left: 100px;
             }
         }
-        .labelTitle{
+
+        .labelTitle {
             display: flex;
         }
     }
-    .actions{
+
+    .actions {
         @media (max-width: 767px) {
             width: 100%;
             display: flex;
             justify-content: space-between;
         }
-        @include tablet{
 
-            >a{margin-left: 30px;}
+        @include tablet {
+
+            >a {
+                margin-left: 30px;
+            }
+
             padding: 5px;
         }
     }
-    .mobile{
-        @include tablet{
+
+    .mobile {
+        @include tablet {
             display: none;
         }
     }
-    .warehouseList__label, .warehouseList__individual{
+
+    .warehouseList__label,
+    .warehouseList__individual {
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     }
-    @include desktop{
-        .warehouseList__label, .warehouseList__individual{
+
+    @include desktop {
+
+        .warehouseList__label,
+        .warehouseList__individual {
             width: 1048px;
         }
+
         margin: 0 auto;
         width: 1100px;
     }
-    .chevronRight{
+
+    .chevronRight {
         align-items: center;
         display: flex;
         padding-top: 1px;
         height: 18px;
     }
-    .delete, .edit{
+
+    .delete,
+    .edit {
         height: 24px;
         width: 24px;
         border-radius: 50px;
+        border-style: none;
+        background-color: rgba(0, 0, 0, 0);
     }
+
     // EXTRA
-    .delete{
-        &:hover{
+    .delete {
+        &:hover {
             // background-color: lightcoral;
         }
     }
-    .edit{
-        &:hover{
+
+    .edit {
+        &:hover {
             // background-color: lightblue;
         }
     }
 
 }
-
-

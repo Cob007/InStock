@@ -34,8 +34,9 @@
                 padding-bottom: 16px;
             }
             .category{
+                align-self: center;
                 padding-top: 16px;
-                width: calc(30vw);
+                width: calc(35vw);
             }
         }
         
@@ -50,6 +51,7 @@
             display: flex;
             justify-content: space-between;
             .individual__content{
+
                 align-items: center;
                 padding: 0;
                 margin: 0;
@@ -90,7 +92,9 @@
                 }
             }
             .individual__content{
-                max-width: 20vw;
+                width: 100%;
+                @include titillium-web-regular;
+                font-size: 1rem;
                 &:nth-child(1){
                     @include tablet{
                         width:120px;

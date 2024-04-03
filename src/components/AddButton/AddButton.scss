@@ -10,6 +10,10 @@
     justify-content: center;
     width: 100%;
 
+    &:hover{
+        background-color: rgba(46, 102, 229, .9);
+    }
+
     @include tablet {
         width: 50%;
         height: 45px;

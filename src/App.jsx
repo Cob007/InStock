@@ -10,6 +10,7 @@ import InventoryList from "./pages/InventoryList/InventoryList.jsx";
 import EditInventory from "./pages/EditInventory/EditInventory.jsx";
 import WarehousePage from "./pages/WarehouseList/wareHouseListPage.jsx";
 import WarehouseInventory from "./pages/WarehouseInventory/WarehouseInventory.jsx";
+import InventoryDetail from "./pages/InventoryDetail/InventoryDetail.jsx";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
 
         <Route path="/inventory" element={<InventoryList />} />
         <Route path="/inventory/new" element={<NewInventory />} />
-        <Route path="/inventory/:itemID" element={<SamplePage />} />
+        <Route path="/inventory/:inventoryId" element={<InventoryDetail />} />
         <Route path="/inventory/:itemID/edit" element={<EditInventory />} />
 
         <Route path="/warehouse" element={<WarehousePage />} />

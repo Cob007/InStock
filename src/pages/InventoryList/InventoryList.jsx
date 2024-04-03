@@ -17,12 +17,13 @@ const InventoryList = () => {
     navigate(`/inventory/${inventoryId}/edit`);
   };
 
-  
   const handleDeleteInventory = (inventoryId) => {
-    console.log(inventoryId)
+    console.log(inventoryId);
   };
 
-
+  const handleInventoryClicked = (inventoryId) => {
+    navigate(`/inventory/${inventoryId}`);
+  };
 
   const [inventoryList, setInventoryList] = useState([]);
 
@@ -101,9 +102,12 @@ const InventoryList = () => {
       {inventoryList.map((inventory, index) => (
         <div key={index}>
           <div className="cont__divider" />
-          <InventoryCard inventory={inventory}
-           handleEditInventory={handleEditInventory}
-           handleDeleteInventory={handleDeleteInventory}/>
+          <InventoryCard
+            inventory={inventory}
+            handleEditInventory={handleEditInventory}
+            handleDeleteInventory={handleDeleteInventory}
+            handleInventoryClicked={handleInventoryClicked}
+          />
         </div>
       ))}
     </main>

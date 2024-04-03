@@ -6,10 +6,10 @@
     justify-content: center;
 }
 .warehouseDetail{
+    color: $Instock-Black;
     width: calc(100vw - 32px);
     background-color: white;
-    border-top: 1px solid $Slate;
-    border-bottom: 1px solid $Slate;
+    border-top: 1px solid $Cloud;
     @include tablet{
         display: flex;
         width: calc(100vw - 64px);
@@ -42,7 +42,7 @@
     }
     .detailBorder{
         @include tablet{
-            border-right: $Slate 1px solid;
+            border-right: $Cloud 1px solid;
         }
     }
 }

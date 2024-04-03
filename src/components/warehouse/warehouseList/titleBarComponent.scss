@@ -2,6 +2,7 @@
 @import '../../../partials/mixins.scss'; 
 
 .actionPanel{
+    color: $Instock-Black;
     z-index: 0;
     justify-content: space-between;
     border-radius: 5px 5px 0 0;

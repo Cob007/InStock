@@ -5,7 +5,15 @@ import SortIcon from "../../assets/Icons/sort-24px.svg"
 import "./InventoryList.scss";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const InventoryList = () => {
+
+    const  navigate  = useNavigate()
+
+    const handleClickAddButton = () => {
+        navigate('/inventory/new');
+    }
+
 
 
   const [inventoryList, setInventoryList] = useState([]);
@@ -29,7 +37,7 @@ const InventoryList = () => {
         <h1 className="cont__header">Inventory</h1>
         <section className="cont__widget">
           <SearchInput />
-          <AddButton />
+          <AddButton handleClickAddButton={handleClickAddButton} />
         </section>
       </article>
       <section className="cont__table-def">

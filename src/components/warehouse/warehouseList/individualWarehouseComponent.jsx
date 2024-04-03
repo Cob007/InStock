@@ -2,10 +2,9 @@ import chevronRight from '../../../assets/Icons/chevron_right-24px.svg'
 import editIcon from '../../../assets/Icons/edit-24px.svg'
 import deleteIcon from '../../../assets/Icons/delete_outline-24px.svg'
 import './individualWarehouseComponent.scss'
-import axios from 'axios'
-import sort from '../../../assets/Icons/sort-24px.svg'
 
-const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,warehouseID}) => {
+
+const SearchbarComponent = ({ handleWarehouseInventory, warehouse,address,contactName, email, phoneNumber,warehouseID}) => {
 
   return (
     <div className='parent'>
@@ -14,10 +13,14 @@ const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,w
         <div className='category warehouse'>
           <p className='individual__title'>WAREHOUSE</p>
           <div className="warehouseWchevron">
-            <a href={`warehouse?ID=${warehouseID}`} className='individual__content'>
+            <div 
+              onClick={()=>{
+                handleWarehouseInventory(warehouseID)
+              }} 
+              className='individual__content'>
               {warehouse}
               <img className='chevronRight' src={chevronRight} />
-            </a>
+            </div>
           </div>
         </div>
         <div className='category contactName'>

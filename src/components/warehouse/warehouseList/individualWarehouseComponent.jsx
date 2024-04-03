@@ -6,7 +6,8 @@ import axios from 'axios'
 import sort from '../../../assets/Icons/sort-24px.svg'
 import { Link } from "react-router-dom";
 
-const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,warehouseID}) => {
+
+const SearchbarComponent = ({ handleWarehouseInventory, warehouse,address,contactName, email, phoneNumber,warehouseID}) => {
 
   return (
     <div className='parent'>
@@ -15,10 +16,14 @@ const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,w
         <div className='category warehouse'>
           <p className='individual__title'>WAREHOUSE</p>
           <div className="warehouseWchevron">
-            <Link to={`/warehouse/:${warehouseID}`} className='individual__content'>
+            <div 
+              onClick={()=>{
+                handleWarehouseInventory(warehouseID)
+              }} 
+              className='individual__content'>
               {warehouse}
               <img className='chevronRight' src={chevronRight} />
-            </Link>
+            </div>
           </div>
         </div>
         <div className='category contactName'>

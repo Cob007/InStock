@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseInventoryCard from "../../components/WarehouseInventoryCard/WarehouseInventoryCard";
 import SortIcon from "../../assets/Icons/sort-24px.svg"
+import DetailsTitleBar from "../../components/warehouse/warehouseDetails/Title";
+import WarehouseDetail from "../../components/warehouse/warehouseDetails/WarehouseDetails";
+import WarehouseDetails from "../../components/warehouse/warehouseDetails/WarehouseDetails";
 
 const WarehouseInventory = () => {
   const { warehouseId } = useParams();
@@ -40,8 +43,8 @@ const WarehouseInventory = () => {
 
   return (
     <main className="cont">
-    
-
+        <DetailsTitleBar warehouseData={warehouseDetails}/>
+        <WarehouseDetails warehouseData={warehouseDetails} />
 
     <section className="cont__table-def">
         <div className="cont__item">

@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const DetailsTitleBar = (warehouseData) => {
+const DetailsTitleBar = ({warehouseData}) => {
+
 if(!warehouseData){
   return <div>Loading....</div>
 }

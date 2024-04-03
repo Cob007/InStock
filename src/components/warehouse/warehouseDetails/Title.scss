@@ -1,7 +1,7 @@
 @import '../../../partials/_variables.scss';
 @import '../../../partials/mixins.scss'; 
 .parentDetail{
-    @include body-small;
+    @include titillium-web-regular;
     display: flex;
     justify-content: center;
     .detailTitle{

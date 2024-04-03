@@ -1,23 +1,31 @@
-import './WarehouseDetails.scss'
+import "./WarehouseDetails.scss";
 
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const WarehouseDetail = (props) => {
-  const { warehouseData } = props
-  const { address, city, contact_name, contact_email, contact_phone, contact_position } = warehouseData;
-  inventory = "Loading..."
-    if(!props){
-      return <div>Loading....</div>
-    }
-    return (
-      <div className='parent'>
+const WarehouseDetails = (props) => {
+  const { warehouseData } = props;
+  const {
+    address,
+    city,
+    contact_name,
+    contact_email,
+    contact_phone,
+    contact_position,
+  } = warehouseData;
+
+  if (!props) {
+    return <div>Loading....</div>;
+  }
+  
+  return (
+    <div className="parent">
       <section className="warehouseDetail">
         <div className="top">
           <p className="subTitle detailBorder">WAREHOUSE ADDRESS:</p>
-          <p className='detailBorder'>{address+", "+city}</p>
+          <p className="detailBorder">{address + ", " + city}</p>
         </div>
         <div className="bottom">
           <div className="left">
@@ -32,8 +40,8 @@ const WarehouseDetail = (props) => {
           </div>
         </div>
       </section>
-      </div>
-    );
-  };
-  
-  export default WarehouseDetail;
+    </div>
+  );
+};
+
+export default WarehouseDetails;

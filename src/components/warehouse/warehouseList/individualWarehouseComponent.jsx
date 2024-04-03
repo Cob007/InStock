@@ -15,7 +15,7 @@ const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,w
         <div className='category warehouse'>
           <p className='individual__title'>WAREHOUSE</p>
           <div className="warehouseWchevron">
-            <Link to={`?ID=${warehouseID}`} className='individual__content'>
+            <Link to={`/warehouse/:${warehouseID}`} className='individual__content'>
               {warehouse}
               <img className='chevronRight' src={chevronRight} />
             </Link>
@@ -39,8 +39,8 @@ const SearchbarComponent = ({warehouse,address,contactName, email, phoneNumber,w
           </div>
         </div>
         <div className="category actions">
-          <Link to="warehouse/delete" className='delete'><img src={deleteIcon}/></Link>
-          <Link to={`warehouse/${warehouseID}/edit`} className='edit'><img src={editIcon}/></Link>
+          <Link to="delete" className='delete'><img src={deleteIcon}/></Link>
+          <Link to={`${warehouseID}/edit`} className='edit'><img src={editIcon}/></Link>
         </div>
       </div>
 

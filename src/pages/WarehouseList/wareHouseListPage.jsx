@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 
 const WarehousePage = () => {
   const [warehouseData, setWarehouseData] = useState([]);
-
   const fetchWarehouseData = async () =>{
     const response = await axios.get('http://localhost:8020/warehouses')
     setWarehouseData(response.data)
@@ -22,7 +21,6 @@ const WarehousePage = () => {
       {warehouseData.map((warehouse=>(
         <IndividualWarehouse key={warehouse.id} warehouse={warehouse.warehouse_name} address={warehouse.address} contactName={warehouse.contact_name} phoneNumber={warehouse.contact_phone} email={warehouse.contact_email} warehouseID={warehouse.id}/>
       )))
-
       }
     </main>
   );

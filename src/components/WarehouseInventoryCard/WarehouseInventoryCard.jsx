@@ -6,9 +6,8 @@ import { useState } from "react";
 const WarehouseInventoryCard = (props) => {
 
 
-  const { inventory } = props;
-  const [styleStock, setStyleStock] = 
-  useState(inventory?.quantity>0?"wcard__instock":"wcard__nostock");
+  const { inventory ,handleEditInventory,
+    toggleModal,} = props;
 
 
   
@@ -32,7 +31,7 @@ const WarehouseInventoryCard = (props) => {
         <section className="wcard__subgroup">
           <div className="wcard__element-status">
             <h3 className="wcard__label">Status</h3>
-            <p className={`wcard__text ${styleStock}`}>{inventory?.status}</p>
+            <p className={`wcard__text ${inventory?.quantity>0?"wcard__instock":"wcard__nostock"}`}>{inventory?.status}</p>
           </div>
           <div className="wcard__element-qty">
             <h3 className="wcard__label">Qty</h3>
@@ -42,11 +41,12 @@ const WarehouseInventoryCard = (props) => {
       </div>
       <section className="wcard__icons-section">
         <img
+         onClick={() => toggleModal(inventory?.id, inventory?.item_name)}
           className="wcard__icon"
           src={DeleteIcon}
           alt="Delete Inventory icon"
         />
-        <img className="wcard__icon" src={EditIcon} alt="Edit Inventory icon" />
+        <img onClick={() => handleEditInventory(inventory?.id)} className="wcard__icon" src={EditIcon} alt="Edit Inventory icon" />
       </section>
     </div>
   );

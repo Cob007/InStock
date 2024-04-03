@@ -18,7 +18,6 @@ const InventoryList = () => {
   };
 
   const handleDeleteInventory = (inventoryId) => {
-    console.log(inventoryId);
   };
 
   const handleInventoryClicked = (inventoryId) => {

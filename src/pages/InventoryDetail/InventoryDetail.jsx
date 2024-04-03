@@ -23,7 +23,6 @@ const InventoryDetail = () => {
       const data = await axios.get(
         `http://localhost:8080/inventories/${inventoryId}`
       );
-      console.log(data.data);
       setDetails(data.data);
     } catch (err) {
       console.log(`loadInventoryDetailsRemote error : ${err}`);

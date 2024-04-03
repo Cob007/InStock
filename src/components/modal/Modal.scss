@@ -12,8 +12,11 @@
     position: fixed;
 }
 
+.modal {
+    background-color: white;
+}
+
 .overlay {
-    // background: rgba(49, 49, 49, 0.8);
     background: rgba(36, 44, 64, 0.8);
 }
 
@@ -106,7 +109,7 @@
             @include page-header;
             margin-top: 3.75rem;
             height: 2.5rem;
-            width: 27.125rem;
+            width: 30.125rem;
             padding: 0rem 4rem;
         }
 
@@ -148,6 +151,10 @@
 
 @include desktop {
 
+    .modal {
+        background-color: white;
+    }
+
 
     .modal-content {
         position: absolute;
@@ -158,13 +165,14 @@
         background-color: white;
         width: 60vw;
         height: 25vh;
+        margin: auto;
 
 
         &__title {
             @include page-header;
             margin-top: 3.75rem;
             height: 2.5rem;
-            width: 27.125rem;
+            width: 30.125rem;
         }
 
         &__prompt {

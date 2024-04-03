@@ -17,7 +17,7 @@ function App() {
       <Header />
       <div className="backgroundBlack"></div>
       <Routes>
-        <Route path="/" element={<SamplePage />} />
+        <Route path="/" element={<WarehousePage />} />
 
         <Route path="/inventory" element={<InventoryList />} />
         <Route path="/inventory/new" element={<NewInventory />} />

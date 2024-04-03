@@ -2,6 +2,9 @@ import chevronRight from '../../../assets/Icons/chevron_right-24px.svg'
 import editIcon from '../../../assets/Icons/edit-24px.svg'
 import deleteIcon from '../../../assets/Icons/delete_outline-24px.svg'
 import './individualWarehouseComponent.scss'
+import axios from 'axios'
+import sort from '../../../assets/Icons/sort-24px.svg'
+import { Link } from "react-router-dom";
 
 
 const SearchbarComponent = ({ handleWarehouseInventory, warehouse,address,contactName, email, phoneNumber,warehouseID}) => {
@@ -41,8 +44,8 @@ const SearchbarComponent = ({ handleWarehouseInventory, warehouse,address,contac
           </div>
         </div>
         <div className="category actions">
-          <a href="warehouse/delete" className='delete'><img src={deleteIcon}/></a>
-          <a href={`warehouse/${warehouseID}/edit`} className='edit'><img src={editIcon}/></a>
+          <Link to="delete" className='delete'><img src={deleteIcon}/></Link>
+          <Link to={`${warehouseID}/edit`} className='edit'><img src={editIcon}/></Link>
         </div>
       </div>
 

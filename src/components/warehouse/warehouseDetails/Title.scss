@@ -1,0 +1,63 @@
+@import '../../../partials/_variables.scss';
+@import '../../../partials/mixins.scss'; 
+.parentDetail{
+    @include body-small;
+    display: flex;
+    justify-content: center;
+    .detailTitle{
+        padding: 40px 0 ;
+        border-radius: 5px;
+        width: calc(100vw - 32px);
+        @include tablet{
+            width: calc(100vw - 64px);
+            &__button{
+                background-color: $Instock-Indigo;
+                text-decoration: none;
+                border-radius: 50px;
+                padding-right: 25px;
+                display: flex;
+                .editIcon{
+                    margin-right: 0;
+                }
+            }
+        }
+        @include desktop{
+            
+            width: 1020px;
+        }
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        &__title{
+            @include page-header;
+        }
+    }
+    .detailsArrowAndName{
+        margin-left: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .notMobileDetail{
+        display: none;
+        @include tablet{
+            display: flex;
+            text-decoration: none;
+            @include body-medium;
+            align-self: center;
+
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .notDetailLogo{
+        padding-right: 40px;
+    }
+    .editIcon{
+        background-color: $Instock-Indigo;
+        padding: 10px;
+        border-radius: 50px;
+        margin-right: 40px;
+    }
+
+    
+}

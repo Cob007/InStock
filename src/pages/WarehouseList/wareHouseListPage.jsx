@@ -21,6 +21,7 @@ const WarehousePage = () => {
     const response = await axios.get('http://localhost:8080/warehouses')
     setWarehouseData(response.data)
   }
+  
   useEffect(()=>{
     fetchWarehouseData()
   },[])
@@ -31,7 +32,6 @@ const WarehousePage = () => {
       {warehouseData.map((warehouse=>(
         <IndividualWarehouse handleWarehouseInventory={handleWarehouseInventory} key={warehouse.id} warehouse={warehouse.warehouse_name} address={warehouse.address} contactName={warehouse.contact_name} phoneNumber={warehouse.contact_phone} email={warehouse.contact_email} warehouseID={warehouse.id}/>
       )))
-
       }
     </main>
   );

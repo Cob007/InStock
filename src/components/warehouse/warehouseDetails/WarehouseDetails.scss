@@ -1,0 +1,48 @@
+@import '../../../partials/_variables.scss';
+@import '../../../partials/mixins.scss'; 
+
+.parent{
+    display: flex;
+    justify-content: center;
+}
+.warehouseDetail{
+    width: calc(100vw - 32px);
+    background-color: white;
+    border-top: 1px solid $Slate;
+    border-bottom: 1px solid $Slate;
+    @include tablet{
+        display: flex;
+        width: calc(100vw - 64px);
+    }
+    @include desktop{
+        width: 1020px;
+    }
+    @include body-medium;
+    .top,.bottom{
+        padding: 20px 40px;
+        display: flex;
+    }
+    .top{
+        flex-direction: column;
+        @include tablet{
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+    .bottom{
+        justify-content: space-between;
+        @include tablet{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .subTitle{
+        color: $Slate;
+    }
+    .detailBorder{
+        @include tablet{
+            border-right: $Slate 1px solid;
+        }
+    }
+}

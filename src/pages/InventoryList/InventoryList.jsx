@@ -30,9 +30,6 @@ const InventoryList = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleDeleteInventory = (inventoryId) => {
-  };
-
   const handleInventoryClicked = (inventoryId) => {
     navigate(`/inventory/${inventoryId}`);
   };

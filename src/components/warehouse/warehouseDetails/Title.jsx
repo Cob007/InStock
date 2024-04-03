@@ -25,7 +25,7 @@ if(!warehouseData){
         <p className="detailTitle__title">{warehouseData.warehouse_name}</p>
         </div>
         <div className='notDetailLogo'>
-        <Link to="warehouse/new" className="detailTitle__button">
+        <Link to="edit" className="detailTitle__button">
           <img className='editIcon' src={editIcon}/>
           <h1 className='notMobileDetail'>Edit</h1>
           </Link>
